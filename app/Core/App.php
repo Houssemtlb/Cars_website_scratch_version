@@ -1,6 +1,10 @@
 <?php
 
-class APP{
+class APP
+{
+
+    private $controller = 'Home';
+    private $method = 'loadPage';
 
     private function splitURL()
     {
@@ -17,8 +21,13 @@ class APP{
 
         if (file_exists($filename)) {
             require($filename);
+            $this->controller = ucfirst($URL[0]) . "Controller";
         } else {
             require("../app/Controllers/Error404Controller.php");
+            $this->controller = 'Error404Controller';
         }
+
+        $controller = new $this->controller;
+        call_user_func_array([$controller, $this->method], []);
     }
 }
