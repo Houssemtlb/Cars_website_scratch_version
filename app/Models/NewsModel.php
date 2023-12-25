@@ -2,23 +2,47 @@
 
 class NewsModel extends Model{
 
-    public function insert()
+    public function insert($data)
     {
-        // TODO: Implement insert() method.
+        $this->connect();
+        $request = $this->connection->prepare("INSERT INTO news(title,date,news) VALUES (?,?,?)");
+        $request->execute(array($data['title'], $data['date'], $data['news']));
+        $this->disconnect();
     }
 
-    public function delete()
+    public function delete($id)
     {
-        // TODO: Implement delete() method.
+        $this->connect();
+        $this->request($this->connection,"delete from news where news_id = $id");
+        $this->disconnect();
     }
 
-    public function update()
+    public function update($data)
     {
-        // TODO: Implement update() method.
+        $this->connect();
+        $request = $this->connection->prepare("UPDATE news SET  title = :title_value, date = :date_value, news = :news_value WHERE (news_id = :news_id)");
+        $request->bindValue(':news_id', $data['news_id']);
+        $request->bindValue(':news_value', $data['news']);
+        $request->bindValue(':date_value', $data['date']);
+        $request->bindValue(':title_value', $data['title']);
+        $request->execute();
+        $this->disconnect();
     }
 
     public function fetch($query)
     {
-        // TODO: Implement fetch() method.
+        $this->connect();
+        $data = $this->request($this->connection,$query);
+        $this->disconnect();
+        return $data;
     }
+
+    public function get($id)
+    {
+        $this->connect();
+        $data = $this->request($this->connection,"select * from news where news_id = $id");
+        $this->disconnect();
+        return $data[0];
+    }
+
 }

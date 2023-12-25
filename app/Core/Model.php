@@ -17,10 +17,18 @@ abstract class Model{
         $this->connection = null;
     }
 
-    public abstract function insert();
-    public abstract function delete();
-    public abstract function update();
-    public abstract function fetch($query);
+    public function request($c, $r)
+    {
+        $result = $c->query($r);
+        return $result->fetchAll();
+    }
+
+    public abstract function insert($data); //inserts a row
+    public abstract function delete($id); // deletes a row with a specific id
+    public abstract function update($data); //updates a row
+    public abstract function fetch($query); //returns an array of db rows (so it's an array of associative arrays !!) that match certain cnds
+    public abstract function get($id); //returns a row that has a specific id
+
 
 
 }
