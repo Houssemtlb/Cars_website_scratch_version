@@ -16,9 +16,7 @@ class HomeController extends Controller
 
         //testing area
         $news = new NewsModel();
-
-        $data = ["news_id" => 5,"title" => "ayoooooooooooooooooooooo","date" => "hi","news" => "hi"];
-        $news->update($data);
+        print_r($news->getPicturesPaths(1));
 
         //$marquesList = new MarquesListView();
         //$compare = new CompareView();

@@ -45,4 +45,15 @@ class NewsModel extends Model{
         return $data[0];
     }
 
+    public function getPicturesPaths($id)
+    {
+        $this->connect();
+        $images_ids = $this->request($this->connection,"select image_id from images_association_news where news_id = $id");
+        $paths = [];
+        foreach ($images_ids as $img_id){
+            $paths[] = $this->request($this->connection,"select image_path from image where image_id = $img_id[0]")[0]['image_path']; //this zero is very important cuz it's an array of rows (also arrays) andthe second zero is to get rid of the array(array(array(...
+        }
+        return $paths;
+    }
+
 }
