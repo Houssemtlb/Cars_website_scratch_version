@@ -37,6 +37,14 @@ class NewsModel extends Model{
         return $data;
     }
 
+    public function getAll()
+    {
+        $this->connect();
+        $data = $this->request($this->connection,'select * from news');
+        $this->disconnect();
+        return $data;
+    }
+
     public function get($id)
     {
         $this->connect();
@@ -54,6 +62,12 @@ class NewsModel extends Model{
             $paths[] = $this->request($this->connection,"select image_path from image where image_id = $img_id[0]")[0]['image_path']; //this zero is very important cuz it's an array of rows (also arrays) andthe second zero is to get rid of the array(array(array(...
         }
         return $paths;
+    }
+
+    public function getAllWithImages(){
+        $this->connect();
+        $result = $this->fetch("select news.news_id,title,j.image_path from (news join images_association_news as i on news.news_id = i.news_id) join image as j on i.image_id = j.image_id");
+        return $result;
     }
 
 }

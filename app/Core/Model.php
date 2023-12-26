@@ -28,6 +28,7 @@ abstract class Model{
     public abstract function update($data); //updates a row
     public abstract function fetch($query); //returns an array of db rows (so it's an array of associative arrays !!) that match certain cnds
     public abstract function get($id); //returns a row that has a specific id
+    public abstract function getAll(); //returns all the rows
 
 
 
