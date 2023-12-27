@@ -6,10 +6,12 @@ require_once("../app/Views/BottomView.php");
 require_once("../app/Views/TopBarView.php");
 require_once("../app/Views/MenuBarView.php");
 require_once("../app/Views/FooterView.php");
+require_once("../app/Views/MarquesView.php");
 
 //MODELS
 require_once("../app/Models/NewsModel.php");
 require_once("../app/Models/PubliciteModel.php");
+require_once ("../app/Models/MarqueModel.php");
 
 class HomeController extends Controller
 {
@@ -18,6 +20,7 @@ class HomeController extends Controller
         //models declaration area
         $news = new NewsModel();
         $pub = new PubliciteModel();
+        $marques = new MarqueModel();
 
         //views declaration area
         $head = new HeadView();
@@ -26,9 +29,11 @@ class HomeController extends Controller
         $topBar = new TopBarView();
         $menuBar = new MenuBarView();
         $footer = new FooterView();
+        $section1 = new MarquesView();
 
         //binding area
         $diapoData = ["news" => $news->getAllWithImages(), "pubs" => $pub->getAllWithImages()];
+        $section1Data = ["size" => "small", "marques" => $marques->getAllWithImages()];
 
         //$marquesList = new MarquesListView();
         //$compare = new CompareView();
@@ -40,6 +45,7 @@ class HomeController extends Controller
         $topBar->show(null);
         $diaporama->show($diapoData);
         $menuBar->show(null);
+        $section1->show($section1Data);
         $bottom->show(null);
         $footer->show(null);
     }

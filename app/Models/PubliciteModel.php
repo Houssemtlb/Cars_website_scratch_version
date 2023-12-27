@@ -65,7 +65,6 @@ class PubliciteModel extends Model
 
     public function getAllWithImages(){
         $this->connect();
-        $result = $this->fetch("select publicite.pub_id,title,j.image_path from (publicite join images_association_publicite as i on publicite.pub_id = i.pub_id) join image as j on i.image_id = j.image_id");
-        return $result;
+        return $this->fetch("select publicite.pub_id,title,j.image_path from (publicite join images_association_publicite as i on publicite.pub_id = i.pub_id) join image as j on i.image_id = j.image_id");
     }
 }

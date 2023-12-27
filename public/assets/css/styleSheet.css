@@ -43,3 +43,37 @@ ul.menu > li {
     list-style: none;
 }
 
+div.marques{
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+}
+
+div.marques > h1{
+    color: black;
+    margin: 20px
+}
+
+ul.marques {
+    display: flex;
+    list-style: none;
+    margin-left: 50px
+}
+
+ul.marques > li > a {
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    border-radius: 8px; display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-inline: 20px;
+    padding: 10px
+}
+
+ul.marques > li > a > h2{
+    color: black;
+    font-family: Arial, serif;
+    text-align: center
+}
+
+

@@ -59,8 +59,7 @@ class NewsModel extends Model{
 
     public function getAllWithImages(){
         $this->connect();
-        $result = $this->fetch("select news.news_id,title,j.image_path from (news join images_association_news as i on news.news_id = i.news_id) join image as j on i.image_id = j.image_id");
-        return $result;
+        return $this->fetch("select news.news_id,title,j.image_path from (news join images_association_news as i on news.news_id = i.news_id) join image as j on i.image_id = j.image_id");
     }
 
 }

@@ -21,7 +21,7 @@ class MarqueModel extends Model{
     {
         $this->connect();
         $request = $this->connection->prepare("UPDATE marque SET nom = :nom, pays_origine = :pays_origine, siege_social = :siege_social, annee_creation = :annee_creation, description = :description WHERE (marque_id = :marque_id)");
-        $request->bindValue(':nom', $data['nom']);  // Assuming 'nom' is the correct key for the 'nom' column
+        $request->bindValue(':nom', $data['nom']);
         $request->bindValue(':pays_origine', $data['pays_origine']);
         $request->bindValue(':siege_social', $data['siege_social']);
         $request->bindValue(':annee_creation', $data['annee_creation']);
@@ -43,8 +43,13 @@ class MarqueModel extends Model{
     public function getAll()
     {
         $this->connect();
-        $data = $this->request($this->connection,'select * from news');
+        $data = $this->request($this->connection,'select * from marque');
         $this->disconnect();
         return $data;
+    }
+
+    public function getAllWithImages(){
+        $this->connect();
+        return $this->fetch("select marque.marque_id,nom,j.image_path from (marque join images_association_marque as i on marque.marque_id = i.marque_id) join image as j on i.image_id = j.image_id");
     }
 }
