@@ -1,5 +1,4 @@
 <?php
-require_once("../app/Core/View.php");
 class DiaporamaView extends View{
 
     public function show($data)

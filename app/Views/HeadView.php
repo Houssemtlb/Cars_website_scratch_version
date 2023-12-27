@@ -1,6 +1,4 @@
 <?php
-require_once("../app/Core/View.php");
-require_once ("../app/Core/config.php");
 class HeadView extends View {
 
 

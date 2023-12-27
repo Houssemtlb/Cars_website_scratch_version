@@ -29,13 +29,6 @@ class NewsModel extends Model{
         $this->disconnect();
     }
 
-    public function fetch($query)
-    {
-        $this->connect();
-        $data = $this->request($this->connection,$query);
-        $this->disconnect();
-        return $data;
-    }
 
     public function getAll()
     {

@@ -1,5 +1,4 @@
 <?php
-
 class PubliciteModel extends Model
 {
     public function insert($data)

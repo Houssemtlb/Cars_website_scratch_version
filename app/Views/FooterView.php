@@ -1,6 +1,4 @@
 <?php
-require_once("../app/Core/View.php");
-
 class FooterView extends View {
 
     public function show($data)
