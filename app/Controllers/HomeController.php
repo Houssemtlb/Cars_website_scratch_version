@@ -3,6 +3,9 @@
 require_once("../app/Views/HeadView.php");
 require_once("../app/Views/DiaporamaView.php");
 require_once("../app/Views/BottomView.php");
+require_once("../app/Views/TopBarView.php");
+require_once("../app/Views/MenuBarView.php");
+require_once("../app/Views/FooterView.php");
 
 //MODELS
 require_once("../app/Models/NewsModel.php");
@@ -20,6 +23,9 @@ class HomeController extends Controller
         $head = new HeadView();
         $diaporama = new DiaporamaView();
         $bottom = new BottomView();
+        $topBar = new TopBarView();
+        $menuBar = new MenuBarView();
+        $footer = new FooterView();
 
         //binding area
         $diapoData = ["news" => $news->getAllWithImages(), "pubs" => $pub->getAllWithImages()];
@@ -31,8 +37,11 @@ class HomeController extends Controller
 
         //display area
         $head->show(null);
+        $topBar->show(null);
         $diaporama->show($diapoData);
+        $menuBar->show(null);
         $bottom->show(null);
+        $footer->show(null);
     }
 
 
