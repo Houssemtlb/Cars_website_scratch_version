@@ -35,6 +35,11 @@ class MenuBarView extends View {
                     Contact
                 </a>
             </li>
+            <li>
+                <a href='http://localhost/cars_website_scratch_version/public/Contact'>
+                    Se connecter
+                </a>
+            </li>
         </ul>";
         echo "</div>";
     }

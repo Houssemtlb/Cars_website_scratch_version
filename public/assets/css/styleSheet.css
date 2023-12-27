@@ -27,7 +27,7 @@ ul.menu {
 
 ul.menu > li {
     margin-top: 12px;
-    margin-inline: 85px;
+    margin-inline: 55px;
 }
 
 .footer {
@@ -43,13 +43,13 @@ ul.menu > li {
     list-style: none;
 }
 
-div.marques{
+div.section{
     background-color: #FFFFFF;
     display: flex;
     flex-direction: column;
 }
 
-div.marques > h1{
+div.section > h1{
     color: black;
     margin: 20px
 }
@@ -57,7 +57,8 @@ div.marques > h1{
 ul.marques {
     display: flex;
     list-style: none;
-    margin-left: 50px
+    justify-content: flex-start;
+    margin-inline: 20px;
 }
 
 ul.marques > li > a {
@@ -66,8 +67,8 @@ ul.marques > li > a {
     border-radius: 8px; display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 10px;
     margin-inline: 20px;
-    padding: 10px
 }
 
 ul.marques > li > a > h2{

@@ -7,11 +7,13 @@ require_once("../app/Views/TopBarView.php");
 require_once("../app/Views/MenuBarView.php");
 require_once("../app/Views/FooterView.php");
 require_once("../app/Views/MarquesView.php");
+require_once("../app/Views/ComparatorView.php");
 
 //MODELS
 require_once("../app/Models/NewsModel.php");
 require_once("../app/Models/PubliciteModel.php");
 require_once ("../app/Models/MarqueModel.php");
+require_once ("../app/Models/VehiculeModel.php");
 
 class HomeController extends Controller
 {
@@ -21,6 +23,7 @@ class HomeController extends Controller
         $news = new NewsModel();
         $pub = new PubliciteModel();
         $marques = new MarqueModel();
+        $vehicule = new VehiculeModel();
 
         //views declaration area
         $head = new HeadView();
@@ -30,15 +33,16 @@ class HomeController extends Controller
         $menuBar = new MenuBarView();
         $footer = new FooterView();
         $section1 = new MarquesView();
+        $section2 = new ComparatorView();
+
 
         //binding area
         $diapoData = ["news" => $news->getAllWithImages(), "pubs" => $pub->getAllWithImages()];
         $section1Data = ["size" => "small", "marques" => $marques->getAllWithImages()];
+        $section2Data = ["marques" => $marques->getAll(), "vehicules" => $vehicule->getAll()];
 
-        //$marquesList = new MarquesListView();
-        //$compare = new CompareView();
-        //$famousCompare = new FamousCompareView();
-        //$footer = new FooterView();
+
+
 
         //display area
         $head->show(null);
@@ -46,11 +50,10 @@ class HomeController extends Controller
         $diaporama->show($diapoData);
         $menuBar->show(null);
         $section1->show($section1Data);
+        $section2->show($section2Data);
         $bottom->show(null);
         $footer->show(null);
     }
 
 
 }
-
-//NEXT STEP, MAKE AND DISPLAY THE ACTUAL DIAPORAMA AND MAKE MARQUE AND VEHICLE MODELS
