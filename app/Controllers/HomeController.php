@@ -15,10 +15,14 @@ require_once("../app/Models/PubliciteModel.php");
 require_once ("../app/Models/MarqueModel.php");
 require_once ("../app/Models/VehiculeModel.php");
 
+
+
+
 class HomeController extends Controller
 {
-    public function LoadPage()
+    public function loadPage()
     {
+
         //models declaration area
         $news = new NewsModel();
         $pub = new PubliciteModel();
@@ -39,7 +43,7 @@ class HomeController extends Controller
         //binding area
         $diapoData = ["news" => $news->getAllWithImages(), "pubs" => $pub->getAllWithImages()];
         $section1Data = ["size" => "small", "marques" => $marques->getAllWithImages()];
-        $section2Data = ["marques" => $marques->getAll(), "vehicules" => $vehicule->getAll()];
+        $section2Data = ["marques" => $marques->getAll(), "vehicules" => $marques->getAllForCompare()];
 
 
 

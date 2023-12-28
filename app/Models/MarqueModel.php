@@ -52,4 +52,11 @@ class MarqueModel extends Model{
         $this->connect();
         return $this->fetch("select marque.marque_id,nom,j.image_path from (marque join images_association_marque as i on marque.marque_id = i.marque_id) join image as j on i.image_id = j.image_id");
     }
+
+    public function getAllForCompare()
+    {
+        $this->connect();
+        return $this->fetch("select m.marque_id,m.nom as marque_nom,v.vehicule_id,v.nom as vehicule_nom,version,annee from (marque as m join vehicule as v on m.marque_id = v.marque_id) join caracteristique as c on v.vehicule_id = c.vehicule_id");
+    }
+
 }

@@ -6,3 +6,6 @@ function show($url)
         echo $url;
         echo "</span>";
     }
+function removeSpaces($str) {
+    return str_replace(' ', '', $str);
+}
