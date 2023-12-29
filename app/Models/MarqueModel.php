@@ -56,7 +56,7 @@ class MarqueModel extends Model{
     public function getAllForCompare()
     {
         $this->connect();
-        return $this->fetch("select m.marque_id,m.nom as marque_nom,v.vehicule_id,v.nom as vehicule_nom,version,annee from (marque as m join vehicule as v on m.marque_id = v.marque_id) join caracteristique as c on v.vehicule_id = c.vehicule_id");
+        return $this->fetch("select m.marque_id,m.nom as marque_nom,v.vehicule_id,v.model as model,version,annee from (marque as m join vehicule as v on m.marque_id = v.marque_id)");
     }
 
 }

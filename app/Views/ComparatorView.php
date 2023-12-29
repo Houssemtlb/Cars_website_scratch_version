@@ -7,56 +7,47 @@ class ComparatorView extends View{
         $marques = $data['marques'];
         $vehicules = $data['vehicules'];
 
-        echo "<div class='section'>
-            <h1>Comparer</h1>
-            <div>
-                <form>
-                    <select class='form-control' id='marque-selector'>";
-        echo "<option>--</option>";
-        foreach ($marques as $marque){
-            echo "<option value='$marque[nom]'>$marque[nom]</option>";
+        echo "<div class='section'>";
+        echo "    <h1>Comparer</h1>";
+        echo "    <div style='display: flex;flex-direction: row;justify-content: space-evenly'>";
+        for($i = 1 ; $i < 5 ; $i++){
+            echo "        <form>";
+            echo "            <select class='form-control' id='marque-selector$i'>";
+            echo "                <option>Marque</option>";
+
+            foreach ($marques as $marque) {
+                echo "                <option value='$marque[nom]'>$marque[nom]</option>";
+            }
+
+            echo "            </select>";
+            echo "            <select class='form-control' id='model-selector$i'>";
+            echo "                <option>Model</option>";
+
+            foreach ($vehicules as $vehicule) {
+                echo "                <option value='$vehicule[model]' name='$vehicule[marque_nom]' style='display: none'>$vehicule[model]</option>";
+            }
+
+            echo "            </select>";
+            echo "            <select class='form-control' id='version-selector$i'>";
+            echo "                <option>Version</option>";
+
+            foreach ($vehicules as $vehicule) {
+                echo "                <option value='$vehicule[version]' name='$vehicule[model]' style='display: none'>$vehicule[version]</option>";
+            }
+
+            echo "            </select>";
+            echo "            <select class='form-control' id='annee-selector$i' >";
+            echo "                <option>Annee</option>";
+
+            foreach ($vehicules as $vehicule) {
+                echo "                <option value='$vehicule[annee]' name='".$vehicule['model'].$vehicule['version']."' style='display: none'>$vehicule[annee]</option>";
+            }
+
+            echo "            </select>";
+            echo "        </form>";
         }
-        echo "</select>";
-        echo "<select class='form-control' id='model-selector'>";
-        echo "<option>--</option>";
-        foreach ($vehicules as $vehicule){
-            echo "<option value='$vehicule[vehicule_nom]' name='$vehicule[marque_nom]' style='display: none'>$vehicule[vehicule_nom]</option>";
-        }
-        echo "</select>";
-        echo "<select class='form-control' id='version-selector'>";
-        echo "<option>--</option>";
-        foreach ($vehicules as $vehicule){
-            echo "<option value='$vehicule[version]' name='$vehicule[vehicule_nom]' style='display: none'>$vehicule[version]</option>";
-        }
-        echo "</select>";
-        echo "<select class='form-control' id='annee-selector' >";
-        echo "<option>--</option>";
-        foreach ($vehicules as $vehicule){
-            echo "<option value='$vehicule[annee]' name='".$vehicule['vehicule_nom'].$vehicule['version']."' style='display: none'>$vehicule[annee]</option>";
-        }
-        echo "</select>";
-        echo "</form>
-            </div>
-        </div>
-        <script>
-            $('#marque-selector').change(function() {
-                $('#model-selector>option[name=\"'+this.value+'\"]').show();
-                $('#model-selector>option[name!=\"'+this.value+'\"]').hide();
-                $('#model-selector').val('--');
-                $('#version-selector').val('--');
-                $('#annee-selector').val('--');
-            });
-            $('#model-selector').change(function() {
-                $('#version-selector>option[name=\"'+this.value+'\"]').show();
-                $('#version-selector>option[name!=\"'+this.value+'\"]').hide();
-                $('#version-selector').val('--');
-                $('#annee-selector').val('--');
-            });
-            $('#version-selector').change(function() {
-                $('#annee-selector>option[name=\"'+$('#model-selector').val()+this.value+'\"]').show();
-                $('#annee-selector>option[name!=\"'+$('#model-selector').val()+this.value+'\"]').hide();
-                $('#annee-selector').val('--');
-            });
-        </script>";
+        echo "    </div>";
+        echo "</div>";
+
     }
 }

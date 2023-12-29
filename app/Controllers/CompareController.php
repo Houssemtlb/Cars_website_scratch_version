@@ -11,7 +11,7 @@ require_once("../app/Views/ComparatorView.php");
 //MODELS
 require_once ("../app/Models/MarqueModel.php");
 require_once ("../app/Models/VehiculeModel.php");
-require_once ("../app/Models/CaracteristicsModel.php");
+
 
 class CompareController extends Controller{
     public function loadPage()
