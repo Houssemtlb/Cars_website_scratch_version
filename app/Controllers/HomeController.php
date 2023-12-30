@@ -20,7 +20,7 @@ require_once ("../app/Models/VehiculeModel.php");
 
 class HomeController extends Controller
 {
-    public function loadPage()
+    public function loadPage($data)
     {
 
         //models declaration area

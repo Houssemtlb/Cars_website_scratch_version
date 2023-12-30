@@ -28,6 +28,6 @@ class APP
         }
 
         $controller = new $this->controller;
-        call_user_func_array([$controller, $this->method], []);
+        call_user_func_array([$controller, $this->method], [$this->splitURL()]);
     }
 }

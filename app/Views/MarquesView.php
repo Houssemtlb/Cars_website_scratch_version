@@ -24,6 +24,7 @@ class MarquesView extends View{
                 </li>";
                 $p++;
                 if($p == 5){
+                    echo"</ul>";
                     echo"</div>";
                     echo"<div>";
                     echo "<ul class='marques'>";

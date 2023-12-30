@@ -14,8 +14,31 @@ require_once ("../app/Models/VehiculeModel.php");
 
 
 class CompareController extends Controller{
-    public function loadPage()
+    public function loadPage($data)
     {
 
+        //models declaration area
+        $marques = new MarqueModel();
+        $vehicule = new VehiculeModel();
+
+        //views declaration area
+        $head = new HeadView();
+        $bottom = new BottomView();
+        $topBar = new TopBarView();
+        $menuBar = new MenuBarView();
+        $footer = new FooterView();
+        $section2 = new ComparatorView();
+
+        //binding area
+        unset($data[0]); //to eliminate le nom du controlleur
+        $section2Data = ["marques" => $marques->getAll(), "vehicules" => $marques->getAllForCompare()];
+
+        //display area
+        $head->show(null);
+        $topBar->show(null);
+        $menuBar->show(null);
+        $section2->show($section2Data);
+        $bottom->show(null);
+        $footer->show(null);
     }
 }
