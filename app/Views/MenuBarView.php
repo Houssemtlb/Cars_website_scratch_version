@@ -11,7 +11,7 @@ class MenuBarView extends View {
                 </a>
             </li>
             <li>
-                <a href='http://localhost/cars_website_scratch_version/public/Comparateur'>
+                <a href='http://localhost/cars_website_scratch_version/public/Compare'>
                     Comparateur
                 </a>
             </li>

@@ -54,4 +54,5 @@ class VehiculeModel extends Model{
         $this->disconnect();
         return $data;
     }
+
 }

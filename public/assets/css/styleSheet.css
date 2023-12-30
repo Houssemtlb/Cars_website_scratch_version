@@ -110,4 +110,12 @@ div.section>button:hover{
     border-radius: 8px;
 }
 
+div.carousel-item>img{
+    height :450px;
+    width:100%;
+    object-fit: contain;
+    background-color:#001011
+
+}
+
 

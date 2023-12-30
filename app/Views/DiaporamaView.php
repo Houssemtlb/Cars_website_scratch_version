@@ -30,7 +30,7 @@ class DiaporamaView extends View{
             if($first){
                 echo"<div class='carousel-item active'>";
                 $first = false;
-                echo"<img class='d-block w-100' style='height :600px' src=".$n["image_path"]." alt='second slide'/>";
+                echo"<img class='d-block w-100' src=".$n["image_path"]." alt='second slide'/>";
                 echo"<div class='carousel-caption d-none d-md-block'>";
                 echo"<h5>".$n["title"]."</h5>";
                 echo"</div>";
@@ -38,7 +38,7 @@ class DiaporamaView extends View{
             }else{
                 echo"<div class='carousel-item'>";
                 $first = false;
-                echo"<img class='d-block w-100' style='height :600px' src=".$n["image_path"]." alt='second slide'/>";
+                echo"<img class='d-block w-100' src=".$n["image_path"]." alt='second slide'/>";
                 echo"<div class='carousel-caption d-none d-md-block'>";
                 echo"<h5>".$n["title"]."</h5>";
                 echo"</div>";
@@ -47,7 +47,7 @@ class DiaporamaView extends View{
         }
         foreach ($pubs as $p){
             echo"<div class='carousel-item'>";
-            echo"<img class='d-block w-100' style='height :600px' src=".$p["image_path"]." alt='second slide'/>";
+            echo"<img class='d-block w-100' src=".$p["image_path"]." alt='second slide'/>";
             echo"<div class='carousel-caption d-none d-md-block'>";
             echo"<h5>".$p["title"]."</h5>";
             echo"</div>";
@@ -68,3 +68,4 @@ class DiaporamaView extends View{
 
     }
 }
+
