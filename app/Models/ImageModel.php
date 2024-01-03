@@ -46,11 +46,21 @@ class ImageModel extends Model{
     public function getVehiculeImages($vehicule_id):array
     {
         $finalResult=[];
-        $this->connect();
         $result =  $this->fetch("select image_path from (select image_id as ids from images_association_vehicule where vehicule_id = $vehicule_id) as j join image as i on i.image_id = j.ids");
         foreach ($result as $array){
             $finalResult[] = $array['image_path'];
         }
         return $finalResult;
+    }
+
+    public function getMarqueLogo($id)
+    {
+        $result =  $this->fetch("select image_path from (select image_id as ids from images_association_marque where marque_id = $id) as j join image as i on i.image_id = j.ids");
+        return $result[0];
+    }
+
+    public function getMarqueAllVehiculeImages($id):array
+    {
+        return $this->fetch("select i.image_path, v.vehicule_id from ((vehicule as v join images_association_vehicule as a on v.vehicule_id = a.vehicule_id) join image as i on i.image_id = a.image_id) where v.marque_id = $id");
     }
 }

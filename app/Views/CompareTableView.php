@@ -19,7 +19,7 @@ class CompareTableView extends View {
             foreach ($data as $vehicle) {
                 echo "<td>";
                 foreach ($vehicle["images"] as $path){
-                    echo "<a><img src='$path' style='height:200px;object-fit: contain'/></a>";
+                    echo "<a href='http://localhost/cars_website_scratch_version/public/'><img src='$path' style='height:200px;object-fit: contain'/></a>";
                 }
                 echo"</td>";
             }
@@ -37,37 +37,31 @@ class CompareTableView extends View {
             }
             echo "</tr>";
             echo "<tr>";
-            echo "<th>prix</th>";
-            foreach ($data as $vehicle) {
-                echo "<td>" . $vehicle["prix"] . "</td>";
-            }
-            echo "</tr>";
-            echo "<tr>";
             echo "<th>moteur</th>";
             foreach ($data as $vehicle) {
                 echo "<td>" . $vehicle["moteur"] . "</td>";
             }
             echo "</tr>";
             echo "<tr>";
-            echo "<th>cylindree</th>";
+            echo "<th>cylindree (L)</th>";
             foreach ($data as $vehicle) {
                 echo "<td>" . $vehicle["cylindree"] . "</td>";
             }
             echo "</tr>";
             echo "<tr>";
-            echo "<th>consommation</th>";
+            echo "<th>consommation (L/100Km)</th>";
             foreach ($data as $vehicle) {
                 echo "<td>" . $vehicle["consommation"] . "</td>";
             }
             echo "</tr>";
             echo "<tr>";
-            echo "<th>nb_cylindres</th>";
+            echo "<th>nombre de cylindres</th>";
             foreach ($data as $vehicle) {
                 echo "<td>" . $vehicle["nb_cylindres"] . "</td>";
             }
             echo "</tr>";
             echo "<tr>";
-            echo "<th>nb_places</th>";
+            echo "<th>nombre de places</th>";
             foreach ($data as $vehicle) {
                 echo "<td>" . $vehicle["nb_places"] . "</td>";
             }
@@ -79,27 +73,33 @@ class CompareTableView extends View {
             }
             echo "</tr>";
             echo "<tr>";
-            echo "<th>longueur</th>";
+            echo "<th>longueur (cm)</th>";
             foreach ($data as $vehicle) {
                 echo "<td>" . $vehicle["longueur"] . "</td>";
             }
             echo "</tr>";
             echo "<tr>";
-            echo "<th>largeur</th>";
+            echo "<th>largeur (cm)</th>";
             foreach ($data as $vehicle) {
                 echo "<td>" . $vehicle["largeur"] . "</td>";
             }
             echo "</tr>";
             echo "<tr>";
-            echo "<th>hauteur</th>";
+            echo "<th>hauteur (cm)</th>";
             foreach ($data as $vehicle) {
                 echo "<td>" . $vehicle["hauteur"] . "</td>";
             }
             echo "</tr>";
             echo "<tr>";
-            echo "<th>note</th>";
+            echo "<th>note (/5)</th>";
             foreach ($data as $vehicle) {
                 echo "<td>" . $vehicle["note"] . "</td>";
+            }
+            echo "</tr>";
+            echo "<tr>";
+            echo "<th>prix ($)</th>";
+            foreach ($data as $vehicle) {
+                echo "<td>" . $vehicle["prix"] . "</td>";
             }
             echo "</tr>";
             echo "</tbody>";

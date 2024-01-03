@@ -1,5 +1,4 @@
 <?php
-
 class VehiculeModel extends Model{
 
     public function insert($data)
@@ -51,6 +50,14 @@ class VehiculeModel extends Model{
     {
         $this->connect();
         $data = $this->request($this->connection,'select * from vehicule');
+        $this->disconnect();
+        return $data;
+    }
+
+    public function getAllForMarque($marque_id)
+    {
+        $this->connect();
+        $data = $this->request($this->connection,"select * from vehicule where marque_id = $marque_id");
         $this->disconnect();
         return $data;
     }

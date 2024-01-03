@@ -16,14 +16,14 @@ class MarquesView extends View{
 ";
         foreach ($marques as $marque) {
             echo "
-                <li>
-                    <a href=''>
+                <li ".($size==="big"?"style='margin: 25px'":"").">
+                    <a href='http://localhost/cars_website_scratch_version/public/Marque/$marque[marque_id]'".($size==="big"?"style='height: 500px; width:350px'":"").">
                         <img src='$marque[image_path]' alt='logo de $marque[nom]'/>
-                        <h2>$marque[nom]</h2>
+                        <h2 ".($size==="big"?"style='font-size:50px'":"").">$marque[nom]</h2>
                     </a>
                 </li>";
                 $p++;
-                if($p == 5){
+                if($p == ($size==="big"?3:5)){
                     echo"</ul>";
                     echo"</div>";
                     echo"<div>";

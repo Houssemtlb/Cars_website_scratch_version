@@ -27,7 +27,6 @@ class HomeController extends Controller
         $news = new NewsModel();
         $pub = new PubliciteModel();
         $marques = new MarqueModel();
-        $vehicule = new VehiculeModel();
 
         //views declaration area
         $head = new HeadView();
@@ -44,7 +43,6 @@ class HomeController extends Controller
         $diapoData = ["news" => $news->getAllWithImages(), "pubs" => $pub->getAllWithImages()];
         $section1Data = ["size" => "small", "marques" => $marques->getAllWithImages()];
         $section2Data = ["marques" => $marques->getAll(), "vehicules" => $marques->getAllForCompare()];
-
 
 
 

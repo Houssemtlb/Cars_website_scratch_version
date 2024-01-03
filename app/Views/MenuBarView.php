@@ -16,7 +16,7 @@ class MenuBarView extends View {
                 </a>
             </li>
             <li>
-                <a href='http://localhost/cars_website_scratch_version/public/Marques'>
+                <a href='http://localhost/cars_website_scratch_version/public/Marque'>
                     Marques
                 </a>
             </li>
