@@ -19,7 +19,7 @@ class CompareTableView extends View {
             foreach ($data as $vehicle) {
                 echo "<td>";
                 foreach ($vehicle["images"] as $path){
-                    echo "<a href='http://localhost/cars_website_scratch_version/public/'><img src='$path' style='height:200px;object-fit: contain'/></a>";
+                    echo "<a href='http://localhost/cars_website_scratch_version/public/Vehicule/$vehicle[vehicule_id]'><img src='$path' style='height:200px;object-fit: contain'/></a>";
                 }
                 echo"</td>";
             }

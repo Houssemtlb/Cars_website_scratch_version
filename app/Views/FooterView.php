@@ -11,12 +11,12 @@ class FooterView extends View {
                 </a>
             </li>
             <li>
-                <a href='http://localhost/cars_website_scratch_version/public/Comparateur'>
+                <a href='http://localhost/cars_website_scratch_version/public/Compare'>
                     Comparateur
                 </a>
             </li>
             <li>
-                <a href='http://localhost/cars_website_scratch_version/public/Marques'>
+                <a href='http://localhost/cars_website_scratch_version/public/Marque'>
                     Marques
                 </a>
             </li>
