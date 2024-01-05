@@ -7,7 +7,8 @@ require_once("../app/Views/TopBarView.php");
 require_once("../app/Views/MenuBarView.php");
 require_once("../app/Views/FooterView.php");
 require_once("../app/Views/VehiculeInfosView.php");
-
+require_once("../app/Views/ComparatorView.php");
+require_once("../app/Views/CompareTableView.php");
 
 
 //MODELS
@@ -24,6 +25,7 @@ class VehiculeController extends Controller{
         //models declaration area
         $vehicules = new VehiculeModel();
         $images = new ImageModel();
+        $marques = new MarqueModel();
 
         //views declaration area
         $head = new HeadView();
@@ -32,20 +34,22 @@ class VehiculeController extends Controller{
         $menuBar = new MenuBarView();
         $footer = new FooterView();
         $vehiculeInfos = new VehiculeInfosView();
+        $comparator = new ComparatorView();
+        $table = new CompareTableView();
 
 
 
         //binding area
         unset($id[0]); //to eliminate le nom du controlleur
         $vehiculeData = ["vehicule" => $vehicules->get($id[1]), "images" => $images->getVehiculeImages($id[1])];
-
-
+        $compareData = ["marques" => $marques->getAll(), "vehicules" => $marques->getAllForCompare(), "specificVehicule" => $vehicules->get($id[1]), "specificMarque" => $marques->get($vehicules->get($id[1])["marque_id"])];
 
         //display area
         $head->show(null);
         $topBar->show(null);
         $menuBar->show(null);
         $vehiculeInfos->show($vehiculeData);
+        $comparator->show($compareData);
         $bottom->show(null);
         $footer->show(null);
     }
