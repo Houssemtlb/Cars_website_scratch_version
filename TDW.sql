@@ -296,7 +296,7 @@ CREATE TABLE `vehicule` (
   `annee` date NOT NULL,
   `prix` int(11) NOT NULL,
   `moteur` varchar(255) NOT NULL,
-  `cylindree` int(11) NOT NULL,
+  `cylindrée` int(11) NOT NULL,
   `consommation` int(11) NOT NULL,
   `nb_cylindres` int(11) NOT NULL,
   `nb_places` int(11) NOT NULL,
@@ -311,7 +311,7 @@ CREATE TABLE `vehicule` (
 -- Déchargement des données de la table `vehicule`
 --
 
-INSERT INTO `vehicule` (`vehicule_id`, `marque_id`, `model`, `version`, `annee`, `prix`, `moteur`, `cylindree`, `consommation`, `nb_cylindres`, `nb_places`, `type`, `longueur`, `largeur`, `hauteur`, `note`) VALUES
+INSERT INTO `vehicule` (`vehicule_id`, `marque_id`, `model`, `version`, `annee`, `prix`, `moteur`, `cylindrée`, `consommation`, `nb_cylindres`, `nb_places`, `type`, `longueur`, `largeur`, `hauteur`, `note`) VALUES
 (1, 1, 'GLS', 'Edition 2023', '2023-01-01', 120000, 'V8', 5, 13, 8, 7, 'SUV', 201, 78, 72, 5),
 (2, 1, 'GLE', 'Premium Plus', '2023-01-01', 95000, 'V6', 4, 11, 6, 5, 'SUV', 195, 76, 68, 4),
 (3, 1, 'GLC', 'Sport', '2023-01-01', 80000, 'V4', 3, 10, 4, 5, 'SUV', 188, 74, 65, 4),

@@ -20,7 +20,7 @@ class ContactController extends Controller
     {
 
         //models declaration area
-        $contact = new NewsModel();
+        $contact = new ContactModel();
 
         //views declaration area
         $head = new HeadView();
@@ -32,15 +32,14 @@ class ContactController extends Controller
 
 
         //binding area
-
-
+        $contactData = $contact->getAll();
 
 
         //display area
         $head->show(null);
         $topBar->show(null);
         $menuBar->show(null);
-
+        $contactView->show($contactData);
         $bottom->show(null);
         $footer->show(null);
     }

@@ -5,7 +5,7 @@ ALTER TABLE `comparateur_vehicules`.`avis_marque` ADD PRIMARY KEY (`avis_marque_
 CREATE TABLE `comparateur_vehicules`.`comparaison` (`comparaison_id` INT NOT NULL AUTO_INCREMENT , `vehicule_1_id` INT NOT NULL , `vehicule_2_id` INT NOT NULL , `nb_recherche` INT NOT NULL , PRIMARY KEY (`comparaison_id`)) ENGINE = InnoDB;
 CREATE TABLE `comparateur_vehicules`.`avis_vehicule` (`avis_vehicule_id` INT NOT NULL AUTO_INCREMENT , `user_id` INT NOT NULL , `vehicule_id` INT NOT NULL , `valide` INT NOT NULL , `note` INT NOT NULL , `avis` TEXT NOT NULL , PRIMARY KEY (`avis_vehicule_id`)) ENGINE = InnoDB;
 CREATE TABLE `comparateur_vehicules`.`vehicule_favoris` (`vahicule_favoris_id` INT NOT NULL AUTO_INCREMENT , `vehicule_id` INT NOT NULL , `user_id` INT NOT NULL , PRIMARY KEY (`vahicule_favoris_id`)) ENGINE = InnoDB;
-CREATE TABLE `comparateur_vehicules`.`caracteristique` (`caracteristique_id` INT NOT NULL AUTO_INCREMENT , `vehicule_id` INT NOT NULL , `model` VARCHAR(255) NOT NULL , `version` VARCHAR(255) NOT NULL , `annee` DATE NOT NULL , `prix` INT NOT NULL , `moteur` VARCHAR(255) NOT NULL , `cylindree` INT NOT NULL , `consomation` INT NOT NULL , `nb_cylindres` INT NOT NULL , `nb_places` INT NOT NULL , `type` VARCHAR(255) NOT NULL , `longuer` INT NOT NULL , `largeur` INT NOT NULL , `hauteur` INT NOT NULL , `note` INT NOT NULL , PRIMARY KEY (`caracteristique_id`)) ENGINE = InnoDB;
+CREATE TABLE `comparateur_vehicules`.`caracteristique` (`caracteristique_id` INT NOT NULL AUTO_INCREMENT , `vehicule_id` INT NOT NULL , `model` VARCHAR(255) NOT NULL , `version` VARCHAR(255) NOT NULL , `annee` DATE NOT NULL , `prix` INT NOT NULL , `moteur` VARCHAR(255) NOT NULL , `cylindrée` INT NOT NULL , `consomation` INT NOT NULL , `nb_cylindres` INT NOT NULL , `nb_places` INT NOT NULL , `type` VARCHAR(255) NOT NULL , `longuer` INT NOT NULL , `largeur` INT NOT NULL , `hauteur` INT NOT NULL , `note` INT NOT NULL , PRIMARY KEY (`caracteristique_id`)) ENGINE = InnoDB;
 CREATE TABLE `comparateur_vehicules`.`vehicule` (`vehicule_id` INT NOT NULL AUTO_INCREMENT , `marque_id` INT NOT NULL , `nom` VARCHAR(255) NOT NULL , PRIMARY KEY (`vehicule_id`)) ENGINE = InnoDB;
 CREATE TABLE `comparateur_vehicules`.`guide_achat` (`guide_achat_id` INT NOT NULL AUTO_INCREMENT , `vehicule_id` INT NOT NULL , `contenu` TEXT NOT NULL , PRIMARY KEY (`guide_achat_id`)) ENGINE = InnoDB;
 CREATE TABLE `comparateur_vehicules`.`images_association_marque` (`images_association_marque_id` INT NOT NULL AUTO_INCREMENT , `marque_id` INT NOT NULL , `image_id` INT NOT NULL , PRIMARY KEY (`images_association_marque_id`)) ENGINE = InnoDB;
@@ -65,7 +65,7 @@ INSERT INTO `vehicule` (`marque_id`,`nom`) VALUES
 (5,'Touareg');
 
 
-INSERT INTO `caracteristique` (`vehicule_id`, `model`, `version`, `annee`, `prix`, `moteur`, `cylindree`, `consomation`, `nb_cylindres`, `nb_places`, `type`, `longuer`, `largeur`, `hauteur`, `note`)
+INSERT INTO `caracteristique` (`vehicule_id`, `model`, `version`, `annee`, `prix`, `moteur`, `cylindrée`, `consomation`, `nb_cylindres`, `nb_places`, `type`, `longuer`, `largeur`, `hauteur`, `note`)
 VALUES
 (1, 'GLS', 'Edition 2023', '2023-01-01', 120000, 'V8', 5.0, 12.5, 8, 7, 'SUV', 201, 78, 72, 4.5),
 (2, 'GLE', 'Premium Plus', '2023-01-01', 95000, 'V6', 3.5, 10.5, 6, 5, 'SUV', 195, 76, 68, 4.2),
