@@ -7,6 +7,9 @@ class MarquesView extends View{
         $p = 0;
         $size = $data['size'];
         $marques = $data['marques'];
+        if(isset($data['link'])){
+            $link = $data['link'];
+        }
 
         echo "
     <div class='section'>
@@ -16,9 +19,13 @@ class MarquesView extends View{
 ";
         foreach ($marques as $marque) {
             echo "
-                <li ".($size==="big"?"style='margin: 25px'":"").">
-                    <a href='http://localhost/cars_website_scratch_version/public/Marque/$marque[marque_id]'".($size==="big"?"style='height: 500px; width:350px'":"").">
-                        <img src='$marque[image_path]' alt='logo de $marque[nom]'/>
+                <li ".($size==="big"?"style='margin: 25px'":"").">";
+                    if(isset($data['link'])){
+                        echo"<a href='http://localhost/cars_website_scratch_version/public/AvisMarque/$marque[marque_id]'".($size==="big"?"style='height: 500px; width:350px'":"").">";
+                    }else{
+                        echo"<a href='http://localhost/cars_website_scratch_version/public/Marque/$marque[marque_id]'".($size==="big"?"style='height: 500px; width:350px'":"").">";
+                    }
+                        echo"<img src='$marque[image_path]' alt='logo de $marque[nom]'/>
                         <h2 ".($size==="big"?"style='font-size:50px'":"").">$marque[nom]</h2>
                     </a>
                 </li>";

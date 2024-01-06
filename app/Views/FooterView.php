@@ -21,7 +21,7 @@ class FooterView extends View {
                 </a>
             </li>
             <li>
-                <a href='http://localhost/cars_website_scratch_version/public/Avis'>
+                <a href='http://localhost/cars_website_scratch_version/public/AvisMarque'>
                     Avis
                 </a>
             </li>

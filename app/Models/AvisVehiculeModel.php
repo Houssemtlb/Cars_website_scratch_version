@@ -48,10 +48,12 @@ class AvisVehiculeModel extends Model{
         return $data;
     }
 
-    public function getAllWithUsernames(){
+    public function getAllWithUsernamesForVehicule($id){
         $this->connect();
-        $data = $this->request($this->connection,"select a.*,u.nom,u.prenom from avis_vehicule as a join user as u on u.user_id = a.user_id");
+        $data = $this->request($this->connection,"select a.*,u.nom,u.prenom from avis_vehicule as a join user as u on u.user_id = a.user_id where a.vehicule_id = $id");
         $this->disconnect();
         return $data;
     }
+
+
 }

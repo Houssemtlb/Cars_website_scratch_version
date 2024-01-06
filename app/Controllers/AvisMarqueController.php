@@ -15,9 +15,11 @@ require_once ("../app/Models/MarqueModel.php");
 require_once ("../app/Models/VehiculeModel.php");
 require_once ("../app/Models/ImageModel.php");
 require_once ("../app/Models/AvisMarqueModel.php");
+require_once ("../app/Models/AvisVehiculeModel.php");
 
 
-class MarqueController extends Controller{
+
+class AvisMarqueController extends Controller{
     public function loadPage($id)
     {
 
@@ -38,7 +40,7 @@ class MarqueController extends Controller{
 
         //binding area
         unset($id[0]); //to eliminate le nom du controlleur
-        $marquesData = ["size" => "big", "marques" => $marques->getAllWithImages()];
+        $marquesData = ["size" => "big", "marques" => $marques->getAllWithImages(),"link" => "avis"];
 
 
         //display area
@@ -51,7 +53,7 @@ class MarqueController extends Controller{
                                     "vehicules" => $vehicules->getAllForMarque($id[1]),
                                     "images" => $images->getMarqueAllVehiculeImages($id[1]),
                                     "avis" => $avisMarque->getAllWithUsernamesForMarque($id[1]),
-                                    "link" => "marque"];
+                                    "link" => "avis"];
             $marqueSpecifiqueView->show($marqueSpecifiqueData);
         }else{
             $marquesView->show($marquesData);

@@ -54,5 +54,12 @@ class AvisMarqueModel extends Model{
         $this->disconnect();
         return $data;
     }
+
+    public function getAllWithUsernamesForMarque($id){
+        $this->connect();
+        $data = $this->request($this->connection,"select a.*,u.nom,u.prenom from avis_marque as a join user as u on u.user_id = a.user_id where a.marque_id = $id");
+        $this->disconnect();
+        return $data;
+    }
 }
 
