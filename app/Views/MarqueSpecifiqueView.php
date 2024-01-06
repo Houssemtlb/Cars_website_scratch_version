@@ -42,9 +42,12 @@ class MarqueSpecifiqueView extends View
             echo"<div class='collapse' id='collapseVoitures' style='width: 90%'>";
 
                 foreach ($vehicules as $vehicule) {
-                    echo "
-                <a class='card' style='margin-bottom: 20px; text-decoration: none;color: black;border-radius: 8px' href='http://localhost/cars_website_scratch_version/public/Vehicule/$vehicule[vehicule_id]'>
-                    <div style='display: flex; flex-direction: row; align-items: center; width:100%'>";
+                    if($link=="avis"){
+                        echo "<a class='card' style='margin-bottom: 20px; text-decoration: none;color: black;border-radius: 8px' href='http://localhost/cars_website_scratch_version/public/AvisVehicule/$vehicule[vehicule_id]'>";
+                    }else{
+                        echo "<a class='card' style='margin-bottom: 20px; text-decoration: none;color: black;border-radius: 8px' href='http://localhost/cars_website_scratch_version/public/Vehicule/$vehicule[vehicule_id]'>";
+                    }
+                    echo"<div style='display: flex; flex-direction: row; align-items: center; width:100%'>";
 
                     foreach ($images as $image) {
                         if ($image["vehicule_id"] == $vehicule["vehicule_id"]) {

@@ -15,6 +15,7 @@ require_once("../app/Views/CompareTableView.php");
 require_once ("../app/Models/MarqueModel.php");
 require_once ("../app/Models/VehiculeModel.php");
 require_once ("../app/Models/ImageModel.php");
+require_once ("../app/Models/AvisVehiculeModel.php");
 
 
 
@@ -26,6 +27,7 @@ class VehiculeController extends Controller{
         $vehicules = new VehiculeModel();
         $images = new ImageModel();
         $marques = new MarqueModel();
+        $avis = new AvisVehiculeModel();
 
         //views declaration area
         $head = new HeadView();
@@ -41,7 +43,7 @@ class VehiculeController extends Controller{
 
         //binding area
         unset($id[0]); //to eliminate le nom du controlleur
-        $vehiculeData = ["vehicule" => $vehicules->get($id[1]), "images" => $images->getVehiculeImages($id[1])];
+        $vehiculeData = ["vehicule" => $vehicules->get($id[1]), "images" => $images->getVehiculeImages($id[1]), "avis" => $avis->getAllWithUsernamesForVehicule($id[1])];
         $compareData = ["marques" => $marques->getAll(), "vehicules" => $marques->getAllForCompare(), "specificVehicule" => $vehicules->get($id[1]), "specificMarque" => $marques->get($vehicules->get($id[1])["marque_id"])];
 
         //display area

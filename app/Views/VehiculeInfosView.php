@@ -6,6 +6,7 @@ class VehiculeInfosView extends View{
     {
         $vehicule = $data["vehicule"];
         $images = $data["images"];
+        $avis = $data["avis"];
 
         echo "
         <div class='section'>
@@ -43,7 +44,24 @@ class VehiculeInfosView extends View{
                     </div>
                 </div> 
                 <img style='margin:40px; height: 600px;object-fit: contain' src='$images[0]' alt='logo'/>
-            </div>
-        </div";
+            </div>";
+        echo"<h1>Avis</h1>";
+
+        foreach ($avis as $a) {
+            echo "
+                <a class='card' style='margin-bottom: 20px;width: 800px; text-decoration: none;color: black; padding: 10px;border-radius: 8px'>
+                    <div style='display: flex; flex-direction: row; align-items: center; width:100%'>";
+            echo "
+                        <div style='display: flex;flex-direction: column; margin-left: 10px'>
+                            <h6>Utilisateur : $a[nom] $a[prenom]</h6>
+                            <h6>Note : $a[note]/5</h6>
+                            <h6>Avis : $a[avis]</h6>
+                            <h6>Appreciation : $a[appreciation] likes</h6>
+                        </div>";
+            echo "
+                    </div>
+                </a>";
+        }
+        echo"</div>";
     }
 }
