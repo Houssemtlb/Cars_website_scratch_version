@@ -12,7 +12,7 @@ class ContactView extends View{
                 echo "
                             <div style='display: flex;flex-direction: column; margin-left: 10px'>
                                 <h6>Contact : $contact[nom] $contact[prenom]</h6>
-                                <h6>email : $contact[email]/5</h6>
+                                <h6>email : $contact[email]</h6>
                             </div>";
                 echo "
                         </div>
