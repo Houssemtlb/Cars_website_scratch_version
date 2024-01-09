@@ -1,6 +1,6 @@
 <?php
 //VIEWS
-require_once("../app/Views/AdminHomeView.php");
+require_once("../app/Views/AdminViews/AdminHomeView.php");
 require_once("../app/Views/HeadView.php");
 require_once("../app/Views/BottomView.php");
 

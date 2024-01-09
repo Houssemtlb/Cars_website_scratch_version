@@ -18,7 +18,7 @@ class ComparatorView extends View{
         }else{
             echo "    <h1>Comparer des vehicules</h1>";
         }
-        echo "    <div style='display: flex;flex-direction: row;justify-content: space-evenly'>";
+        echo "    <div style='display: flex;flex-direction: row;justify-content: space-evenly;width: 100%'>";
         for($i = 1 ; $i < 5  ; $i++){
             if(isset($data['specificVehicule']) && $i == 1){
                 echo "        <form class='compare'>";

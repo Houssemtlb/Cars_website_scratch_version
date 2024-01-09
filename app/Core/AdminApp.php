@@ -17,7 +17,6 @@ class AdminApp
         if(isset($_POST['username']) && isset($_POST['password'])){
             if($_POST['username'] == 'admin' && $_POST['password'] == 'admin'){
                 $_SESSION["admin-authenticated"] = 'true';
-                echo"hahahahaha";
             }
         }
 

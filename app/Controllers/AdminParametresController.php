@@ -1,38 +1,35 @@
 <?php
 //VIEWS
-require_once("../app/Views/AdminViews/AdminAuthView.php");
 require_once("../app/Views/HeadView.php");
 require_once("../app/Views/BottomView.php");
+require_once("../app/Views/AdminViews/AdminContactsTable.php");
 
 //MODELS
+require_once ("../app/Models/ContactModel.php");
 
 
 
-
-class AdminAuthController extends Controller
-{
+class AdminParametresController extends Controller{
     public function loadPage($data)
     {
-
         //models declaration area
-
+        $contacts = new ContactModel();
 
         //views declaration area
         $head = new HeadView();
-        $adminAuthView = new AdminAuthView();
+        $table = new AdminContactsTable();
         $bottom = new BottomView();
 
 
         //binding area
-        unset($_SESSION['admin-authenticated']);
+        $tableData = $contacts->getAll();
 
 
         //display area
 
+
         $head->show(null);
-        $adminAuthView->show(null);
+        $table->show($tableData);
         $bottom->show(null);
     }
-
-
 }

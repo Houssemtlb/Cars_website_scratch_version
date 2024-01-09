@@ -25,8 +25,8 @@ class MarquesView extends View{
                     }else{
                         echo"<a href='http://localhost/cars_website_scratch_version/public/Marque/$marque[marque_id]'".($size==="big"?"style='height: 500px; width:350px'":"").">";
                     }
-                        echo"<img src='$marque[image_path]' alt='logo de $marque[nom]'/>
-                        <h2 ".($size==="big"?"style='font-size:50px'":"").">$marque[nom]</h2>
+                        echo"<img src='$marque[image_path]' alt='logo de $marque[nom]'/>";
+                        echo"<h2 ".($size==="big"?"style='font-size:50px'":"").">$marque[nom]</h2>
                     </a>
                 </li>";
                 $p++;
