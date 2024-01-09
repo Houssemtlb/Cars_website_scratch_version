@@ -16,7 +16,7 @@ require_once("../app/Models/ContactModel.php");
 
 class ContactController extends Controller
 {
-    public function loadPage()
+    public function loadPage($data)
     {
 
         //models declaration area

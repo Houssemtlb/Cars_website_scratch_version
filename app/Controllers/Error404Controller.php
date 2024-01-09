@@ -2,8 +2,8 @@
 
 class Error404Controller extends Controller
 {
-    public function loadPage()
+    public function loadPage($data)
     {
-        parent::loadComponent('Error404.view.php');
+
     }
 }

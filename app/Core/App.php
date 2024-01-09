@@ -1,6 +1,6 @@
 <?php
 
-class APP
+class App
 {
 
     private $controller = 'Home';
