@@ -8,7 +8,7 @@ require_once ("../app/Models/ImageModel.php");
 //VIEWS
 require_once("../app/Views/HeadView.php");
 require_once("../app/Views/BottomView.php");
-require_once("../app/Views/AdminViews/AdminAjouterMarqueView.php");
+require_once("../app/Views/AdminViews/AdminMarqueFormView.php");
 
 
 
@@ -21,7 +21,7 @@ class AdminMarqueController extends Controller{
 
         //views declaration area
         $head = new HeadView();
-        $form = new AdminAjouterMarqueView();
+        $form = new AdminMarqueFormView();
         $bottom = new BottomView();
 
         switch ($data[1]){

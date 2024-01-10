@@ -7,7 +7,7 @@ require_once ("../app/Models/ImageModel.php");
 //VIEWS
 require_once("../app/Views/HeadView.php");
 require_once("../app/Views/BottomView.php");
-require_once("../app/Views/AdminViews/AdminAjouterVehiculeView.php");
+require_once("../app/Views/AdminViews/AdminVehiculeFormView.php");
 
 
 
@@ -20,7 +20,7 @@ class AdminVehiculeController extends Controller{
 
         //views declaration area
         $head = new HeadView();
-        $form = new AdminAjouterVehiculeView();
+        $form = new AdminVehiculeFormView();
         $bottom = new BottomView();
 
         switch ($data[1]){

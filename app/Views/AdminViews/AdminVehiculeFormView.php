@@ -1,6 +1,6 @@
 <?php
 
-class AdminAjouterVehiculeView extends View{
+class AdminVehiculeFormView extends View{
 
     public function show($data)
     {

@@ -1,6 +1,6 @@
 <?php
 
-class AdminAjouterMarqueView extends View{
+class AdminMarqueFormView extends View{
 
     public function show($data)
     {
