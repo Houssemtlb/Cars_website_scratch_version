@@ -7,7 +7,7 @@ class AdminVehiculesTable extends View{
         if(!empty($vehicules)){
             echo"<div class='section'>";
             echo"<h1>Vehicules </h1>";
-            echo "<table class='table table-striped table-dark table-bordered table-sm' style='margin-top: 30px; width: 80%'>";
+            echo "<table id='VehiculesTable' class='table table-striped table-dark table-bordered table-sm' style='margin-top: 30px; width: 80%'>";
             echo "<thead>";
             echo "<th> vehicule_id </th>";
             echo "<th> marque_id </th>";
@@ -45,7 +45,8 @@ class AdminVehiculesTable extends View{
                 echo "<td>" . $vehicule["largeur"] . "</td>";
                 echo "<td>" . $vehicule["hauteur"] . "</td>";
                 echo"<td><a href='http://localhost/cars_website_scratch_version/admin/AdminVehicule/Modifier/$vehicule[vehicule_id]' class=\"btn btn-secondary\" style='margin: 10px'>Modifier</a>
-                         <a href='http://localhost/cars_website_scratch_version/admin/AdminVehicule/Supprimer/$vehicule[vehicule_id]' class=\"btn btn-secondary\" style='margin: 10px'>Supprimer</a></td>";
+                         <a href='http://localhost/cars_website_scratch_version/admin/AdminVehicule/Supprimer/$vehicule[vehicule_id]' class=\"btn btn-secondary\" style='margin: 10px'>Supprimer</a>
+                         <a href='http://localhost/cars_website_scratch_version/public/Vehicule/$vehicule[vehicule_id]' class=\"btn btn-secondary\" style='margin: 10px'>Info</a></td>";
                 echo "</tr>";
             }
             echo "</tbody>";
