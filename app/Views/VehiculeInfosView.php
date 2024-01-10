@@ -18,8 +18,8 @@ class VehiculeInfosView extends View{
                         <h4 style='margin: 20px'>$vehicule[annee]</h4>
                         <h4 style='color: #43C59E; margin-left: 10px'>Moteur : </h4>
                         <h4 style='margin: 20px'>$vehicule[moteur]</h4>
-                        <h4 style='color: #43C59E; margin-left: 10px'>Cylindrée : </h4>
-                        <h4 style='margin: 20px'>$vehicule[cylindrée] Litres</h4>
+                        <h4 style='color: #43C59E; margin-left: 10px'>Cylindree : </h4>
+                        <h4 style='margin: 20px'>$vehicule[cylindree] Litres</h4>
                         <h4 style='color: #43C59E; margin-left: 10px'>Consommation : </h4>
                         <h4 style='margin: 20px'>$vehicule[consommation] L/100Km</h4>
                         <h4 style='color: #43C59E; margin-left: 10px'>Nombre de cylindres : </h4>

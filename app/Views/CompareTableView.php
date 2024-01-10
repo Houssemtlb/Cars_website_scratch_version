@@ -43,9 +43,9 @@ class CompareTableView extends View {
             }
             echo "</tr>";
             echo "<tr>";
-            echo "<th>cylindrée (L)</th>";
+            echo "<th>cylindree (L)</th>";
             foreach ($data as $vehicle) {
-                echo "<td>" . $vehicle["cylindrée"] . "</td>";
+                echo "<td>" . $vehicle["cylindree"] . "</td>";
             }
             echo "</tr>";
             echo "<tr>";

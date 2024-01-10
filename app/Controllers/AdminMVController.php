@@ -3,6 +3,7 @@
 require_once("../app/Views/HeadView.php");
 require_once("../app/Views/BottomView.php");
 require_once("../app/Views/AdminViews/AdminMarquesTable.php");
+require_once("../app/Views/AdminViews/AdminVehiculesTable.php");
 
 //MODELS
 require_once ("../app/Models/VehiculeModel.php");
@@ -20,7 +21,7 @@ class AdminMVController extends Controller{
 
         //views declaration area
         $head = new HeadView();
-
+        $vehiculesTable = new AdminVehiculesTable();
         $marquesTable = new AdminMarquesTable();
         $bottom = new BottomView();
 
@@ -34,6 +35,7 @@ class AdminMVController extends Controller{
         //display area
         $head->show(null);
         $marquesTable->show($marquesTableData);
+        $vehiculesTable->show($vehiculesTableData);
         $bottom->show(null);
     }
 }

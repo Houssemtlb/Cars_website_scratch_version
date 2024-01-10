@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 29 déc. 2023 à 14:39
+-- Généré le : mer. 10 jan. 2024 à 11:19
 -- Version du serveur : 10.4.28-MariaDB
 -- Version de PHP : 8.2.4
 
@@ -33,8 +33,25 @@ CREATE TABLE `avis_marque` (
   `marque_id` int(11) NOT NULL,
   `valide` int(11) NOT NULL,
   `note` int(11) NOT NULL,
-  `avis` text NOT NULL
+  `avis` text NOT NULL,
+  `appreciation` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `avis_marque`
+--
+
+INSERT INTO `avis_marque` (`avis_marque_id`, `user_id`, `marque_id`, `valide`, `note`, `avis`, `appreciation`) VALUES
+(1, 1, 1, 1, 5, 'Avis sur mercedes ', 19),
+(2, 1, 2, 1, 5, 'Avis sur porsche ', 19),
+(3, 1, 3, 1, 5, 'Avis sur ford ', 19),
+(4, 1, 4, 1, 5, 'Avis sur toyota ', 19),
+(6, 1, 1, 1, 5, 'Avis sur mercedes ', 19),
+(7, 1, 2, 1, 5, 'Avis sur porsche ', 19),
+(8, 1, 3, 1, 5, 'Avis sur ford ', 19),
+(9, 1, 4, 1, 5, 'Avis sur toyota ', 19),
+(11, 1, 5, 1, 4, 'tres bonne marque, tres fiable.', 12),
+(12, 1, 5, 1, 4, 'tres satisfait de la marque', 13);
 
 -- --------------------------------------------------------
 
@@ -48,8 +65,61 @@ CREATE TABLE `avis_vehicule` (
   `vehicule_id` int(11) NOT NULL,
   `valide` int(11) NOT NULL,
   `note` int(11) NOT NULL,
-  `avis` text NOT NULL
+  `avis` text NOT NULL,
+  `appreciation` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `avis_vehicule`
+--
+
+INSERT INTO `avis_vehicule` (`avis_vehicule_id`, `user_id`, `vehicule_id`, `valide`, `note`, `avis`, `appreciation`) VALUES
+(17, 1, 1, 1, 5, 'tres bon vehicule', 10),
+(18, 1, 2, 1, 5, 'tres bon vehicule', 10),
+(19, 1, 3, 1, 5, 'tres bon vehicule', 10),
+(20, 1, 4, 1, 5, 'tres bon vehicule', 10),
+(21, 1, 5, 1, 5, 'tres bon vehicule', 10),
+(22, 1, 6, 1, 5, 'vehicule tres rapide', 10),
+(23, 1, 7, 1, 5, 'vehicule tres rapide', 10),
+(24, 1, 8, 1, 5, 'vehicule tres rapide', 10),
+(25, 1, 9, 1, 5, 'vehicule tres rapide', 10),
+(26, 1, 10, 1, 5, 'vehicule tres rapide', 10),
+(27, 1, 11, 1, 5, 'vehicule performant', 10),
+(28, 1, 12, 1, 5, 'vehicule performant', 10),
+(29, 1, 13, 1, 5, 'vehicule performant', 10),
+(30, 1, 14, 1, 5, 'vehicule performant', 10),
+(31, 1, 15, 1, 5, 'vehicule performant', 10),
+(32, 1, 16, 1, 5, 'vehicule performant', 10),
+(33, 1, 17, 1, 5, 'vehicule fiable', 10),
+(34, 1, 18, 1, 5, 'vehicule fiable', 10),
+(35, 1, 19, 1, 5, 'vehicule fiable', 10),
+(36, 1, 20, 1, 5, 'vehicule fiable', 10),
+(42, 1, 1, 1, 5, 'Très satisfait de ce véhicule, performances exceptionnelles et confort optimal.', 10),
+(43, 1, 2, 1, 5, 'Véhicule de grande qualité, agréable à conduire et économique.', 10),
+(44, 1, 3, 1, 5, 'Excellent choix, ce véhicule répond parfaitement à mes attentes.', 10),
+(45, 1, 4, 1, 5, 'Très content de mon acquisition, le véhicule est fiable et performant.', 10),
+(46, 1, 5, 1, 5, 'Avis très positif, le véhicule est à la hauteur de mes attentes.', 10),
+(47, 1, 6, 1, 5, 'Ce véhicule est incroyablement rapide, une expérience de conduite exceptionnelle.', 10),
+(48, 1, 7, 1, 5, 'Rapidité et performance.', 10),
+(49, 1, 8, 1, 5, 'Conduite agréable et rapide.', 10),
+(50, 1, 9, 1, 5, 'Véhicule rapide et fiable.', 10),
+(51, 1, 10, 1, 5, 'Excellente performance et fiabilité.', 10),
+(52, 1, 11, 1, 5, 'Véhicule très performant, un plaisir à conduire.', 10),
+(53, 1, 12, 1, 5, 'Performances exceptionnelles, un investissement qui en vaut la peine.', 10),
+(54, 1, 13, 1, 5, 'Véhicule performant et fiable, je suis pleinement satisfait.', 10),
+(55, 1, 14, 1, 5, 'Excellent choix, ce véhicule répond à toutes mes attentes.', 10),
+(56, 1, 15, 1, 5, 'Véhicule performant et confortable, une expérience de conduite exceptionnelle.', 10),
+(57, 1, 16, 1, 5, 'Très satisfait de mon choix, ce véhicule allie performance et fiabilité.', 10),
+(58, 1, 17, 1, 5, 'Véhicule fiable et économique, je le recommande.', 10),
+(59, 1, 18, 1, 5, 'Excellente fiabilité, un choix sûr et satisfaisant.', 10),
+(60, 1, 19, 1, 5, 'Véhicule fiable et pratique, je suis très content de mon achat.', 10),
+(61, 1, 20, 1, 5, 'Très satisfait de la fiabilité de ce véhicule.', 10),
+(67, 1, 22, 1, 4, 'tres belle voitutre et tres pratique', 22),
+(68, 1, 22, 1, 4, 'tres belle voitutre', 22),
+(69, 1, 21, 1, 4, 'tres bonnes performances', 22),
+(70, 1, 23, 1, 4, 'voiture fiable', 22),
+(71, 1, 25, 1, 4, 'tres spacieuse', 22),
+(72, 1, 24, 1, 4, 'bonne consommation', 22);
 
 -- --------------------------------------------------------
 
@@ -76,6 +146,15 @@ CREATE TABLE `contact` (
   `prenom` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `contact`
+--
+
+INSERT INTO `contact` (`contact_id`, `nom`, `prenom`, `email`) VALUES
+(1, 'Talbi1', 'Houssem1', 'kh_talbi1@esi.dz'),
+(3, 'Talbi2', 'Houssem2', 'kh_talbi2@esi.dz'),
+(4, 'Talbi3', 'Houssem3', 'kh_talbi3@esi.dz');
 
 -- --------------------------------------------------------
 
@@ -115,7 +194,32 @@ INSERT INTO `image` (`image_id`, `image_path`) VALUES
 (8, 'http://localhost/cars_website_scratch_version/public/assets/images/volkswagen-logo.svg'),
 (9, 'http://localhost/cars_website_scratch_version/public/assets/images/mercedes-logo.svg'),
 (10, 'http://localhost/cars_website_scratch_version/public/assets/images/porsche-logo.svg'),
-(11, 'http://localhost/cars_website_scratch_version/public/assets/images/toyota-logo.svg');
+(11, 'http://localhost/cars_website_scratch_version/public/assets/images/toyota-logo.svg'),
+(16, 'http://localhost/cars_website_scratch_version/public/assets/images/gls.jpg'),
+(17, 'http://localhost/cars_website_scratch_version/public/assets/images/classS.jpg'),
+(18, 'http://localhost/cars_website_scratch_version/public/assets/images/gle.jpg'),
+(19, 'http://localhost/cars_website_scratch_version/public/assets/images/glc.jpg'),
+(20, 'http://localhost/cars_website_scratch_version/public/assets/images/classE.jpg'),
+(25, 'http://localhost/cars_website_scratch_version/public/assets/images/911.jpg'),
+(26, 'http://localhost/cars_website_scratch_version/public/assets/images/cayenne.jpg'),
+(27, 'http://localhost/cars_website_scratch_version/public/assets/images/macan.jpg'),
+(28, 'http://localhost/cars_website_scratch_version/public/assets/images/panamera.jpg'),
+(29, 'http://localhost/cars_website_scratch_version/public/assets/images/taycan.jpg'),
+(30, 'http://localhost/cars_website_scratch_version/public/assets/images/focus.jpg'),
+(31, 'http://localhost/cars_website_scratch_version/public/assets/images/fiesta.jpg'),
+(32, 'http://localhost/cars_website_scratch_version/public/assets/images/bronco.jpg'),
+(33, 'http://localhost/cars_website_scratch_version/public/assets/images/mustang.jpg'),
+(34, 'http://localhost/cars_website_scratch_version/public/assets/images/kuga.jpg'),
+(35, 'http://localhost/cars_website_scratch_version/public/assets/images/yaris.jpg'),
+(36, 'http://localhost/cars_website_scratch_version/public/assets/images/corolla.jpg'),
+(37, 'http://localhost/cars_website_scratch_version/public/assets/images/prius.jpg'),
+(38, 'http://localhost/cars_website_scratch_version/public/assets/images/rav4.jpg'),
+(39, 'http://localhost/cars_website_scratch_version/public/assets/images/hilux.jpg'),
+(40, 'http://localhost/cars_website_scratch_version/public/assets/images/polo.jpg'),
+(41, 'http://localhost/cars_website_scratch_version/public/assets/images/golf.jpg'),
+(42, 'http://localhost/cars_website_scratch_version/public/assets/images/touareg.jpg'),
+(43, 'http://localhost/cars_website_scratch_version/public/assets/images/tiguan.jpg'),
+(44, 'http://localhost/cars_website_scratch_version/public/assets/images/passat.jpg');
 
 -- --------------------------------------------------------
 
@@ -138,7 +242,7 @@ INSERT INTO `images_association_marque` (`images_association_marque_id`, `marque
 (2, 1, 9),
 (3, 2, 10),
 (4, 4, 11),
-(5, 5, 8);
+(6, 5, 8);
 
 -- --------------------------------------------------------
 
@@ -194,6 +298,37 @@ CREATE TABLE `images_association_vehicule` (
   `image_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Déchargement des données de la table `images_association_vehicule`
+--
+
+INSERT INTO `images_association_vehicule` (`images_association_vehicule_id`, `vehicule_id`, `image_id`) VALUES
+(3, 1, 16),
+(4, 4, 17),
+(5, 2, 18),
+(6, 3, 19),
+(7, 5, 20),
+(8, 8, 25),
+(9, 6, 26),
+(10, 7, 27),
+(11, 9, 28),
+(12, 10, 29),
+(13, 11, 30),
+(14, 12, 31),
+(15, 15, 32),
+(16, 13, 33),
+(17, 14, 34),
+(18, 16, 35),
+(19, 17, 36),
+(20, 18, 37),
+(21, 20, 38),
+(22, 19, 39),
+(28, 23, 44),
+(29, 24, 43),
+(30, 25, 42),
+(31, 21, 41),
+(32, 22, 40);
+
 -- --------------------------------------------------------
 
 --
@@ -214,11 +349,12 @@ CREATE TABLE `marque` (
 --
 
 INSERT INTO `marque` (`marque_id`, `nom`, `pays_origine`, `siege_social`, `annee_creation`, `description`) VALUES
-(1, 'Mercedes', 'allmagne', 'Stuttgart', '1926-01-01', 'later'),
-(2, 'Porsche', 'allmagne', 'Stuttgart', '1931-01-01', 'later'),
-(3, 'Ford', 'usa', 'Michigan', '1903-01-01', 'later'),
-(4, 'Toyota', 'japon', 'Toyota City', '1937-01-01', 'later'),
-(5, 'Volkswagen', 'allmagne', 'Wolfsburg', '1937-01-01', 'later');
+(1, 'Mercedes', 'allmagne', 'Stuttgart', '1926-01-01', 'Mercedes-Benz est une marque de luxe allemande réputée pour ses véhicules haut de gamme, son design élégant et ses performances exceptionnelles. Fondée en 1926, la marque est synonyme d\'innovation technologique, de qualité de construction et de confort.'),
+(2, 'Porsche', 'allmagne', 'Stuttgart', '1931-01-01', 'Porsche est une marque automobile allemande spécialisée dans la fabrication de voitures de sport et de luxe. Fondée en 1931, Porsche est célèbre pour ses modèles emblématiques tels que la Porsche 911. La marque est associée à des performances sportives et à un design distinctif.'),
+(3, 'Ford', 'usa', 'Michigan', '1903-01-01', 'Ford est un constructeur automobile américain emblématique, fondé par Henry Ford en 1903. La marque est connue pour avoir popularisé la production de masse de voitures. Ford propose une variété de véhicules, des camions aux voitures de sport, et est reconnu pour son héritage dans l\'industrie automobile américaine.'),
+(4, 'Toyota', 'japon', 'Toyota City', '1937-01-01', 'Toyota est un fabricant automobile japonais renommé pour sa fiabilité, son innovation et son engagement envers l\'efficacité énergétique. Fondée en 1937, Toyota est l\'un des plus grands constructeurs automobiles au monde. La marque offre une large gamme de véhicules, des voitures compactes aux SUV et aux véhicules hybrides.'),
+(5, 'Volkswagen', 'Allemagne', 'Allemagne', '1937-01-01', 'Volkswagen, souvent abrégé VW, est un constructeur automobile allemand fondé en 1937. La marque est réputée pour ses voitures compactes, ses berlines et ses SUV. Volkswagen est l\'un des plus grands fabricants automobiles au monde et possède un large éventail de modèles, allant de la populaire Golf à des véhicules électriques comme la Volkswagen ID.3'),
+(27, 'hi', 'hi', 'hi', '2002-02-02', '02');
 
 -- --------------------------------------------------------
 
@@ -282,6 +418,13 @@ CREATE TABLE `user` (
   `valide` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Déchargement des données de la table `user`
+--
+
+INSERT INTO `user` (`user_id`, `nom`, `prenom`, `email`, `mot_de_passe`, `date_naissance`, `sexe`, `valide`) VALUES
+(1, 'Talbi', 'Houssem', 'kh_tabi@esi.dz', 'motDePasse', '2002-06-08', 'Homme', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -296,7 +439,7 @@ CREATE TABLE `vehicule` (
   `annee` date NOT NULL,
   `prix` int(11) NOT NULL,
   `moteur` varchar(255) NOT NULL,
-  `cylindrée` int(11) NOT NULL,
+  `cylindree` int(11) NOT NULL,
   `consommation` int(11) NOT NULL,
   `nb_cylindres` int(11) NOT NULL,
   `nb_places` int(11) NOT NULL,
@@ -311,7 +454,7 @@ CREATE TABLE `vehicule` (
 -- Déchargement des données de la table `vehicule`
 --
 
-INSERT INTO `vehicule` (`vehicule_id`, `marque_id`, `model`, `version`, `annee`, `prix`, `moteur`, `cylindrée`, `consommation`, `nb_cylindres`, `nb_places`, `type`, `longueur`, `largeur`, `hauteur`, `note`) VALUES
+INSERT INTO `vehicule` (`vehicule_id`, `marque_id`, `model`, `version`, `annee`, `prix`, `moteur`, `cylindree`, `consommation`, `nb_cylindres`, `nb_places`, `type`, `longueur`, `largeur`, `hauteur`, `note`) VALUES
 (1, 1, 'GLS', 'Edition 2023', '2023-01-01', 120000, 'V8', 5, 13, 8, 7, 'SUV', 201, 78, 72, 5),
 (2, 1, 'GLE', 'Premium Plus', '2023-01-01', 95000, 'V6', 4, 11, 6, 5, 'SUV', 195, 76, 68, 4),
 (3, 1, 'GLC', 'Sport', '2023-01-01', 80000, 'V4', 3, 10, 4, 5, 'SUV', 188, 74, 65, 4),
@@ -473,10 +616,16 @@ ALTER TABLE `vehicule_favoris`
 --
 
 --
+-- AUTO_INCREMENT pour la table `avis_marque`
+--
+ALTER TABLE `avis_marque`
+  MODIFY `avis_marque_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
 -- AUTO_INCREMENT pour la table `avis_vehicule`
 --
 ALTER TABLE `avis_vehicule`
-  MODIFY `avis_vehicule_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `avis_vehicule_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT pour la table `comparaison`
@@ -488,7 +637,7 @@ ALTER TABLE `comparaison`
 -- AUTO_INCREMENT pour la table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `contact_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `contact_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `guide_achat`
@@ -500,13 +649,13 @@ ALTER TABLE `guide_achat`
 -- AUTO_INCREMENT pour la table `image`
 --
 ALTER TABLE `image`
-  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT pour la table `images_association_marque`
 --
 ALTER TABLE `images_association_marque`
-  MODIFY `images_association_marque_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `images_association_marque_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pour la table `images_association_news`
@@ -524,13 +673,13 @@ ALTER TABLE `images_association_publicite`
 -- AUTO_INCREMENT pour la table `images_association_vehicule`
 --
 ALTER TABLE `images_association_vehicule`
-  MODIFY `images_association_vehicule_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `images_association_vehicule_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT pour la table `marque`
 --
 ALTER TABLE `marque`
-  MODIFY `marque_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `marque_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT pour la table `news`
@@ -548,13 +697,13 @@ ALTER TABLE `publicite`
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `vehicule`
 --
 ALTER TABLE `vehicule`
-  MODIFY `vehicule_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `vehicule_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT pour la table `vehicule_favoris`
@@ -570,15 +719,15 @@ ALTER TABLE `vehicule_favoris`
 -- Contraintes pour la table `avis_marque`
 --
 ALTER TABLE `avis_marque`
-  ADD CONSTRAINT `avis_marque_ibfk_1` FOREIGN KEY (`marque_id`) REFERENCES `marque` (`marque_id`),
-  ADD CONSTRAINT `avis_marque_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`);
+  ADD CONSTRAINT `avis_marque_ibfk_1` FOREIGN KEY (`marque_id`) REFERENCES `marque` (`marque_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `avis_marque_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE;
 
 --
 -- Contraintes pour la table `avis_vehicule`
 --
 ALTER TABLE `avis_vehicule`
-  ADD CONSTRAINT `avis_vehicule_ibfk_1` FOREIGN KEY (`vehicule_id`) REFERENCES `vehicule` (`vehicule_id`),
-  ADD CONSTRAINT `avis_vehicule_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`);
+  ADD CONSTRAINT `avis_vehicule_ibfk_1` FOREIGN KEY (`vehicule_id`) REFERENCES `vehicule` (`vehicule_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `avis_vehicule_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE;
 
 --
 -- Contraintes pour la table `comparaison`
@@ -591,48 +740,48 @@ ALTER TABLE `comparaison`
 -- Contraintes pour la table `guide_achat`
 --
 ALTER TABLE `guide_achat`
-  ADD CONSTRAINT `guide_achat_ibfk_1` FOREIGN KEY (`vehicule_id`) REFERENCES `vehicule` (`vehicule_id`);
+  ADD CONSTRAINT `guide_achat_ibfk_1` FOREIGN KEY (`vehicule_id`) REFERENCES `vehicule` (`vehicule_id`) ON DELETE CASCADE;
 
 --
 -- Contraintes pour la table `images_association_marque`
 --
 ALTER TABLE `images_association_marque`
-  ADD CONSTRAINT `images_association_marque_ibfk_1` FOREIGN KEY (`image_id`) REFERENCES `image` (`image_id`),
-  ADD CONSTRAINT `images_association_marque_ibfk_2` FOREIGN KEY (`marque_id`) REFERENCES `marque` (`marque_id`);
+  ADD CONSTRAINT `images_association_marque_ibfk_1` FOREIGN KEY (`image_id`) REFERENCES `image` (`image_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `images_association_marque_ibfk_2` FOREIGN KEY (`marque_id`) REFERENCES `marque` (`marque_id`) ON DELETE CASCADE;
 
 --
 -- Contraintes pour la table `images_association_news`
 --
 ALTER TABLE `images_association_news`
-  ADD CONSTRAINT `images_association_news_ibfk_1` FOREIGN KEY (`image_id`) REFERENCES `image` (`image_id`),
-  ADD CONSTRAINT `images_association_news_ibfk_2` FOREIGN KEY (`news_id`) REFERENCES `news` (`news_id`);
+  ADD CONSTRAINT `images_association_news_ibfk_1` FOREIGN KEY (`image_id`) REFERENCES `image` (`image_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `images_association_news_ibfk_2` FOREIGN KEY (`news_id`) REFERENCES `news` (`news_id`) ON DELETE CASCADE;
 
 --
 -- Contraintes pour la table `images_association_publicite`
 --
 ALTER TABLE `images_association_publicite`
-  ADD CONSTRAINT `images_association_publicite_ibfk_1` FOREIGN KEY (`image_id`) REFERENCES `image` (`image_id`),
-  ADD CONSTRAINT `images_association_publicite_ibfk_2` FOREIGN KEY (`pub_id`) REFERENCES `publicite` (`pub_id`);
+  ADD CONSTRAINT `images_association_publicite_ibfk_1` FOREIGN KEY (`image_id`) REFERENCES `image` (`image_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `images_association_publicite_ibfk_2` FOREIGN KEY (`pub_id`) REFERENCES `publicite` (`pub_id`) ON DELETE CASCADE;
 
 --
 -- Contraintes pour la table `images_association_vehicule`
 --
 ALTER TABLE `images_association_vehicule`
-  ADD CONSTRAINT `images_association_vehicule_ibfk_1` FOREIGN KEY (`image_id`) REFERENCES `image` (`image_id`),
-  ADD CONSTRAINT `images_association_vehicule_ibfk_2` FOREIGN KEY (`vehicule_id`) REFERENCES `vehicule` (`vehicule_id`);
+  ADD CONSTRAINT `images_association_vehicule_ibfk_1` FOREIGN KEY (`image_id`) REFERENCES `image` (`image_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `images_association_vehicule_ibfk_2` FOREIGN KEY (`vehicule_id`) REFERENCES `vehicule` (`vehicule_id`) ON DELETE CASCADE;
 
 --
 -- Contraintes pour la table `vehicule`
 --
 ALTER TABLE `vehicule`
-  ADD CONSTRAINT `vehicule_ibfk_1` FOREIGN KEY (`marque_id`) REFERENCES `marque` (`marque_id`);
+  ADD CONSTRAINT `vehicule_ibfk_1` FOREIGN KEY (`marque_id`) REFERENCES `marque` (`marque_id`) ON DELETE CASCADE;
 
 --
 -- Contraintes pour la table `vehicule_favoris`
 --
 ALTER TABLE `vehicule_favoris`
-  ADD CONSTRAINT `vehicule_favoris_ibfk_1` FOREIGN KEY (`vehicule_id`) REFERENCES `vehicule` (`vehicule_id`),
-  ADD CONSTRAINT `vehicule_favoris_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`);
+  ADD CONSTRAINT `vehicule_favoris_ibfk_1` FOREIGN KEY (`vehicule_id`) REFERENCES `vehicule` (`vehicule_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `vehicule_favoris_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
