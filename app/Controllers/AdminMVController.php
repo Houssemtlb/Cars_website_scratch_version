@@ -13,29 +13,35 @@ require_once ("../app/Models/ImageModel.php");
 class AdminMVController extends Controller{
     public function loadPage($data)
     {
-        //models declaration area
-        $vehicules = new VehiculeModel();
-        $marques = new MarqueModel();
+        if(isset($_SESSION['admin-authenticated'])){
+            //models declaration area
+            $vehicules = new VehiculeModel();
+            $marques = new MarqueModel();
 
 
 
-        //views declaration area
-        $head = new HeadView();
-        $vehiculesTable = new AdminVehiculesTable();
-        $marquesTable = new AdminMarquesTable();
-        $bottom = new BottomView();
+            //views declaration area
+            $head = new HeadView();
+            $vehiculesTable = new AdminVehiculesTable();
+            $marquesTable = new AdminMarquesTable();
+            $bottom = new BottomView();
 
 
-        //binding area
-        $vehiculesTableData = $vehicules->getAll();
-        $marquesTableData = $marques->getAll();
+            //binding area
+            $vehiculesTableData = $vehicules->getAll();
+            $marquesTableData = $marques->getAll();
 
 
 
-        //display area
-        $head->show(null);
-        $marquesTable->show($marquesTableData);
-        $vehiculesTable->show($vehiculesTableData);
-        $bottom->show(null);
+            //display area
+            $head->show(null);
+            $marquesTable->show($marquesTableData);
+            $vehiculesTable->show($vehiculesTableData);
+            $bottom->show(null);
+        }else{
+            header("Location: http://localhost/cars_website_scratch_version/admin/AdminAuth");
+        }
+
+
     }
 }

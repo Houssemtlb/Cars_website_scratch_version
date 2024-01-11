@@ -26,41 +26,45 @@ class AdminNewsController extends Controller{
         $bottom = new BottomView();
 
 
-        if(isset($data[1])){
-            switch ($data[1]){
-                //MODELS
-                case 'Modifier' :
-                    $newsData = $news->get($data[2]);
-                    if(array_key_exists("NewsButton",$_POST))
-                    {
-                        $news->update($_POST);
-                        header("Location: http://localhost/cars_website_scratch_version/admin/AdminNews");
-                    }else{
-                        $head->show(null);
-                        $form->show($newsData);
-                        $bottom->show(null);
-                    }
-                    break;
-                case 'Supprimer' :
+        if(isset($_SESSION['admin-authenticated'])){
+            if(isset($data[1])){
+                switch ($data[1]){
+                    //MODELS
+                    case 'Modifier' :
+                        $newsData = $news->get($data[2]);
+                        if(array_key_exists("NewsButton",$_POST))
+                        {
+                            $news->update($_POST);
+                            header("Location: http://localhost/cars_website_scratch_version/admin/AdminNews");
+                        }else{
+                            $head->show(null);
+                            $form->show($newsData);
+                            $bottom->show(null);
+                        }
+                        break;
+                    case 'Supprimer' :
                         $news->delete($data[2]);
                         header("Location: http://localhost/cars_website_scratch_version/admin/AdminNews");
-                    break;
-                case 'Ajouter' :
-                    if(array_key_exists("NewsButton",$_POST))
-                    {
-                        $news->insert($_POST);
-                        header("Location: http://localhost/cars_website_scratch_version/admin/AdminNews");
-                    }else{
-                        $head->show(null);
-                        $form->show(null);
-                        $bottom->show(null);
-                    }
-                    break;
+                        break;
+                    case 'Ajouter' :
+                        if(array_key_exists("NewsButton",$_POST))
+                        {
+                            $news->insert($_POST);
+                            header("Location: http://localhost/cars_website_scratch_version/admin/AdminNews");
+                        }else{
+                            $head->show(null);
+                            $form->show(null);
+                            $bottom->show(null);
+                        }
+                        break;
+                }
+            }else{
+                $head->show(null);
+                $table->show($newsTableData);
+                $bottom->show(null);
             }
         }else{
-            $head->show(null);
-            $table->show($newsTableData);
-            $bottom->show(null);
+            header("Location: http://localhost/cars_website_scratch_version/admin/AdminAuth");
         }
     }
 }

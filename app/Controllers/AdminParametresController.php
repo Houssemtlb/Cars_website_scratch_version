@@ -27,41 +27,45 @@ class AdminParametresController extends Controller{
         //binding area
         $contactsData = $contacts->getAll();
 
-        if(isset($data[1])){
-            switch ($data[1]){
-                //MODELS
-                case 'Modifier' :
-                    $contactsData = $contacts->get($data[2]);
-                    if(array_key_exists("ContactsButton",$_POST))
-                    {
-                        $contacts->update($_POST);
+        if(isset($_SESSION['admin-authenticated'])){
+            if(isset($data[1])){
+                switch ($data[1]){
+                    //MODELS
+                    case 'Modifier' :
+                        $contactsData = $contacts->get($data[2]);
+                        if(array_key_exists("ContactsButton",$_POST))
+                        {
+                            $contacts->update($_POST);
+                            header("Location: http://localhost/cars_website_scratch_version/admin/AdminParametres");
+                        }else{
+                            $head->show(null);
+                            $form->show($contactsData);
+                            $bottom->show(null);
+                        }
+                        break;
+                    case 'Supprimer' :
+                        $contacts->delete($data[2]);
                         header("Location: http://localhost/cars_website_scratch_version/admin/AdminParametres");
-                    }else{
-                        $head->show(null);
-                        $form->show($contactsData);
-                        $bottom->show(null);
-                    }
-                    break;
-                case 'Supprimer' :
-                    $contacts->delete($data[2]);
-                    header("Location: http://localhost/cars_website_scratch_version/admin/AdminParametres");
-                    break;
-                case 'Ajouter' :
-                    if(array_key_exists("ContactsButton",$_POST))
-                    {
-                        $contacts->insert($_POST);
-                        header("Location: http://localhost/cars_website_scratch_version/admin/AdminParametres");
-                    }else{
-                        $head->show(null);
-                        $form->show(null);
-                        $bottom->show(null);
-                    }
-                    break;
+                        break;
+                    case 'Ajouter' :
+                        if(array_key_exists("ContactsButton",$_POST))
+                        {
+                            $contacts->insert($_POST);
+                            header("Location: http://localhost/cars_website_scratch_version/admin/AdminParametres");
+                        }else{
+                            $head->show(null);
+                            $form->show(null);
+                            $bottom->show(null);
+                        }
+                        break;
+                }
+            }else{
+                $head->show(null);
+                $table->show($contactsData);
+                $bottom->show(null);
             }
         }else{
-            $head->show(null);
-            $table->show($contactsData);
-            $bottom->show(null);
+            header("Location: http://localhost/cars_website_scratch_version/admin/AdminAuth");
         }
     }
 }

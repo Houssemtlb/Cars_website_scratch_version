@@ -46,20 +46,16 @@ class NewsModel extends Model{
         return $data[0];
     }
 
-    public function getPicturesPaths($id)
-    {
-        $this->connect();
-        $images_ids = $this->request($this->connection,"select image_id from images_association_news where news_id = $id");
-        $paths = [];
-        foreach ($images_ids as $img_id){
-            $paths[] = $this->request($this->connection,"select image_path from image where image_id = $img_id[0]")[0]['image_path'];
-        }
-        return $paths;
-    }
+
 
     public function getAllWithImages(){
         $this->connect();
-        return $this->fetch("select news.news_id,title,j.image_path from (news join images_association_news as i on news.news_id = i.news_id) join image as j on i.image_id = j.image_id");
+        return $this->fetch("select news.news_id,title,date,news,j.image_path from (news join images_association_news as i on news.news_id = i.news_id) join image as j on i.image_id = j.image_id");
+    }
+
+    public function getWithImages($id){
+        $this->connect();
+        return $this->fetch("select news.news_id,title,date,news,j.image_path from (news join images_association_news as i on news.news_id = i.news_id) join image as j on i.image_id = j.image_id where news.news_id = $id")[0];
     }
 
 }

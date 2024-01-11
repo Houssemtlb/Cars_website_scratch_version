@@ -29,16 +29,20 @@ class DiaporamaView extends View{
         foreach ($news as $n){
             if($first){
                 echo"<div class='carousel-item active'>";
-                $first = false;
-                echo"<img class='d-block w-100' src=".$n["image_path"]." alt='second slide'/>";
-                echo"<div class='carousel-caption d-none d-md-block'>";
-                echo"<h5>".$n["title"]."</h5>";
-                echo"</div>";
+                    $first = false;
+                    echo"<a style='display: flex;justify-content: center;align-items: center;background-color: #001011' href='http://localhost/cars_website_scratch_version/public/News/$n[news_id]'>";
+                        echo"<img style='height: 500px;object-fit: contain' src='$n[image_path]' alt='second slide'/>";
+                    echo"</a>";
+                    echo"<div class='carousel-caption d-none d-md-block'>";
+                        echo"<h5>".$n["title"]."</h5>";
+                    echo"</div>";
                 echo"</div>";
             }else{
                 echo"<div class='carousel-item'>";
                 $first = false;
-                echo"<img class='d-block w-100' src=".$n["image_path"]." alt='second slide'/>";
+                echo"<a style='display: flex;justify-content: center;align-items: center;background-color: #001011' href='http://localhost/cars_website_scratch_version/public/News/$n[news_id]'>";
+                    echo"<img style='height: 500px;object-fit: contain' src='$n[image_path]' alt='second slide'/>";
+                echo"</a>";
                 echo"<div class='carousel-caption d-none d-md-block'>";
                 echo"<h5>".$n["title"]."</h5>";
                 echo"</div>";
@@ -47,7 +51,9 @@ class DiaporamaView extends View{
         }
         foreach ($pubs as $p){
             echo"<div class='carousel-item'>";
-            echo"<img class='d-block w-100' src=".$p["image_path"]." alt='second slide'/>";
+            echo"<a style='display: flex;justify-content: center;align-items: center;background-color: #001011' >";
+            echo"<img style='height: 500px;object-fit: contain' src='$p[image_path]' alt='second slide'/>";
+            echo"</a>";
             echo"<div class='carousel-caption d-none d-md-block'>";
             echo"<h5>".$p["title"]."</h5>";
             echo"</div>";
