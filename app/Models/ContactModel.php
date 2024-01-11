@@ -20,7 +20,7 @@ class ContactModel extends Model{
     public function update($data)
     {
         $this->connect();
-        $request = $this->connection->prepare("UPDATE email SET  nom = :nom_value, prenom = :prenom_value, email = :email_value WHERE (contact_id = :contact_id)");
+        $request = $this->connection->prepare("UPDATE contact SET  nom = :nom_value, prenom = :prenom_value, email = :email_value WHERE (contact_id = :contact_id)");
         $request->bindValue(':contact_id', $data['contact_id']);
         $request->bindValue(':email_value', $data['email']);
         $request->bindValue(':prenom_value', $data['prenom']);
