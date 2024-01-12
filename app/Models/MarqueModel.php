@@ -20,13 +20,14 @@ class MarqueModel extends Model{
     public function update($data)
     {
         $this->connect();
-        $request = $this->connection->prepare("UPDATE marque SET nom = :nom, pays_origine = :pays_origine, siege_social = :siege_social, annee_creation = :annee_creation, description = :description WHERE (marque_id = :marque_id)");
+        $request = $this->connection->prepare("UPDATE marque SET nom = :nom, pays_origine = :pays_origine, siege_social = :siege_social, annee_creation = :annee_creation, description = :description, note = :note WHERE (marque_id = :marque_id)");
         $request->bindValue(':nom', $data['nom']);
         $request->bindValue(':pays_origine', $data['pays_origine']);
         $request->bindValue(':siege_social', $data['siege_social']);
         $request->bindValue(':annee_creation', $data['annee_creation']);
         $request->bindValue(':description', $data['description']);
         $request->bindValue(':marque_id', $data['marque_id']);
+        $request->bindValue(':note', $data['note']);
         $request->execute();
         $this->disconnect();
     }

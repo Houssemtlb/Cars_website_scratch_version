@@ -47,7 +47,7 @@ class CompareController extends Controller{
         //display area
         $head->show(null);
         $topBar->show(null);
-        $menuBar->show(null);
+        $menuBar->show($_SESSION['user-authenticated']??null);
         $section2->show($section2Data);
         $table->show($tableData);
         $bottom->show(null);

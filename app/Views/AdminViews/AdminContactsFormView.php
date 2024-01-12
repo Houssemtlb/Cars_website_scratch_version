@@ -28,7 +28,7 @@ class AdminContactsFormView extends View{
                                </div>
                               <div class=\"form-group\">
                                     <label>email</label>
-                                    <input type='email' required=\"required\" class=\"form-control\" name=\"email\" value=\"$data[email]\">
+                                    <input  required=\"required\" class=\"form-control\" name=\"email\" value=\"$data[email]\">
                               </div>
                           </div>
                       </div>

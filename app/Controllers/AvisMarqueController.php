@@ -46,7 +46,7 @@ class AvisMarqueController extends Controller{
         //display area
         $head->show(null);
         $topBar->show(null);
-        $menuBar->show(null);
+        $menuBar->show($_SESSION['user-authenticated']??null);
         if(!empty($id[1])){
             $marqueSpecifiqueData =["marque" => $marques->get($id[1]),
                                     "logo" => $images->getMarqueLogo($id[1]) ,

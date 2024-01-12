@@ -35,11 +35,17 @@ class MenuBarView extends View {
                     Contact
                 </a>
             </li>
-            <li>
-                <a href='http://localhost/cars_website_scratch_version/public/Contact'>
-                    Se connecter
-                </a>
-            </li>
+            <li>";
+                if(isset($data)){
+                    echo"<a href='http://localhost/cars_website_scratch_version/public/Account'>
+                        Mon compte
+                    </a>";
+                }else{
+                    echo"<a href='http://localhost/cars_website_scratch_version/public/Login'>
+                        Se connecter
+                    </a>";
+                }
+            echo"</li>
         </ul>";
         echo "</div>";
     }

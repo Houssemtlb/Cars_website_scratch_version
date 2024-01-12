@@ -27,6 +27,20 @@ class MarqueController extends Controller{
         $images = new ImageModel();
         $avisMarque = new AvisMarqueModel();
 
+
+        if(isset($_SESSION['user-authenticated'])){
+            $session = $_SESSION;
+            if(array_key_exists("avisMarqueButton",$_POST)){
+                $avisMarque->insert($_POST);
+                $marque = $marques->get($_POST['marque_id']);
+                $marque['note'] = $avisMarque->calculateNote($_POST['marque_id']);
+                $marques->update($marque);
+            }
+        }else{
+            $session = null;
+        }
+
+
         //views declaration area
         $head = new HeadView();
         $bottom = new BottomView();
@@ -44,14 +58,15 @@ class MarqueController extends Controller{
         //display area
         $head->show(null);
         $topBar->show(null);
-        $menuBar->show(null);
+        $menuBar->show($_SESSION['user-authenticated']??null);
         if(!empty($id[1])){
             $marqueSpecifiqueData =["marque" => $marques->get($id[1]),
                                     "logo" => $images->getMarqueLogo($id[1]) ,
                                     "vehicules" => $vehicules->getAllForMarque($id[1]),
                                     "images" => $images->getMarqueAllVehiculeImages($id[1]),
                                     "avis" => $avisMarque->getAllWithUsernamesForMarque($id[1]),
-                                    "link" => "marque"];
+                                    "link" => "marque",
+                                    "session" => $session];
             $marqueSpecifiqueView->show($marqueSpecifiqueData);
         }else{
             $marquesView->show($marquesData);

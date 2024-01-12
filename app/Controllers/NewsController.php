@@ -40,7 +40,7 @@ class NewsController extends Controller
         //display area
         $head->show(null);
         $topBar->show(null);
-        $menuBar->show(null);
+        $menuBar->show($_SESSION['user-authenticated']??null);
         if(isset($data[1])){
             $specificNewsView->show($news->getWithImages($data[1]));
         }else{

@@ -5,8 +5,8 @@ class AvisVehiculeModel extends Model{
     public function insert($data)
     {
         $this->connect();
-        $request = $this->connection->prepare("INSERT INTO avis_vehicule(user_id,vehicule_id,valide,note,avis,appreciation) VALUES (?,?,?,?,?,?)");
-        $request->execute(array($data['user_id'], $data['vehicule_id'], $data['valide'],$data['note'], $data['avis'], $data['appreciation']));
+        $request = $this->connection->prepare("INSERT INTO avis_vehicule(user_id,vehicule_id,note,avis) VALUES (?,?,?,?)");
+        $request->execute(array($data['user_id'], $data['vehicule_id'],$data['note'], $data['avis']));
         $this->disconnect();
     }
 
@@ -55,5 +55,17 @@ class AvisVehiculeModel extends Model{
         return $data;
     }
 
+    public function calculateNote($id)
+    {
+        $this->connect();
+        $notes = $this->request($this->connection,"select note from avis_vehicule where vehicule_id = $id and valide = 1");
+        $somme = 0;
+        foreach ($notes as $note){
+            $somme = $somme + $note['note'];
+        }
+        $result = $somme/count($notes);
+        $this->disconnect();
+        return $result;
+    }
 
 }

@@ -40,6 +40,10 @@ class AdminMarqueFormView extends View{
                                     <label>description</label>
                                     <textarea type='text' required=\"required\"  class=\"form-control\" name=\"description\" >$data[description]</textarea>
                               </div>
+                              <div class=\"form-group\">
+                                    <label>note</label>
+                                    <input type='number'  class=\"form-control\" name=\"note\" value='$data[note]'>
+                              </div>
                           </div>
                       </div>
                      <button type=\"submit\" class=\"btn btn-secondary btn-lg btn-block\" name=\"MarqueButton\">$action</button>

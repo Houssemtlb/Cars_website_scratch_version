@@ -5,8 +5,8 @@ class UserModel extends Model{
     public function insert($data)
     {
         $this->connect();
-        $request = $this->connection->prepare("INSERT INTO avis_marque(nom,prenom,email,mot_de_passe,date_naissance,sexe,valide) VALUES (?,?,?,?,?,?,?)");
-        $request->execute(array($data['nom'], $data['prenom'], $data['email'],$data['mot_de_passe'], $data['date_naissance'], $data['sexe'], $data['valide']));
+        $request = $this->connection->prepare("INSERT INTO user(nom,prenom,email,mot_de_passe,date_naissance,sexe) VALUES (?,?,?,?,?,?)");
+        $request->execute(array($data['nom'], $data['prenom'], $data['email'],$data['mot_de_passe'], $data['date_naissance'], $data['sexe']));
         $this->disconnect();
     }
 
@@ -47,5 +47,19 @@ class UserModel extends Model{
         $data = $this->request($this->connection,"select * from user");
         $this->disconnect();
         return $data;
+    }
+
+    public function verifyLogin($credentials)
+    {
+        $result = 0;
+        $this->connect();
+        $data = $this->request($this->connection,"select user_id,email,mot_de_passe from user");
+        foreach ($data as $u) {
+            if($credentials['email'] === $u['email']){
+                $result = $u['user_id'];
+            }
+        }
+        $this->disconnect();
+        return $result;
     }
 }

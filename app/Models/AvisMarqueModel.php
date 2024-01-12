@@ -5,8 +5,8 @@ class AvisMarqueModel extends Model{
     public function insert($data)
     {
         $this->connect();
-        $request = $this->connection->prepare("INSERT INTO avis_marque(user_id,marque_id,valide,note,avis,appreciation) VALUES (?,?,?,?,?,?)");
-        $request->execute(array($data['user_id'], $data['marque_id'], $data['valide'],$data['note'], $data['avis'], $data['appreciation']));
+        $request = $this->connection->prepare("INSERT INTO avis_marque(user_id,marque_id,note,avis) VALUES (?,?,?,?)");
+        $request->execute(array($data['user_id'], $data['marque_id'],$data['note'], $data['avis']));
         $this->disconnect();
     }
 
@@ -60,6 +60,19 @@ class AvisMarqueModel extends Model{
         $data = $this->request($this->connection,"select a.*,u.nom,u.prenom from avis_marque as a join user as u on u.user_id = a.user_id where a.marque_id = $id");
         $this->disconnect();
         return $data;
+    }
+
+    public function calculateNote($id)
+    {
+        $this->connect();
+        $notes = $this->request($this->connection,"select note from avis_marque where marque_id = $id and valide = 1");
+        $somme = 0;
+        foreach ($notes as $note){
+            $somme = $somme + $note['note'];
+        }
+        $result = $somme/count($notes);
+        $this->disconnect();
+        return $result;
     }
 }
 

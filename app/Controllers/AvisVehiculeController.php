@@ -47,7 +47,7 @@ class AvisVehiculeController extends Controller{
         //display area
         $head->show(null);
         $topBar->show(null);
-        $menuBar->show(null);
+        $menuBar->show($_SESSION['user-authenticated']??null);
         $avisVehiculeView->show($avisVehiculeData);
         $bottom->show(null);
         $footer->show(null);

@@ -5,22 +5,26 @@ require_once("../app/Views/BottomView.php");
 require_once("../app/Views/TopBarView.php");
 require_once("../app/Views/MenuBarView.php");
 require_once("../app/Views/FooterView.php");
-require_once("../app/Views/ContactView.php");
+require_once("../app/Views/RegisterFormView.php");
 
 //MODELS
-require_once("../app/Models/ContactModel.php");
+require_once("../app/Models/UserModel.php");
 
 
-
-
-
-class ContactController extends Controller
+class RegisterController extends Controller
 {
     public function loadPage($data)
     {
-
         //models declaration area
-        $contact = new ContactModel();
+        $users = new UserModel();
+
+
+        $submitted = false;
+        if(array_key_exists("RegisterButton",$_POST)){
+            $submitted = true;
+            $users->insert($_POST);
+        }
+
 
         //views declaration area
         $head = new HeadView();
@@ -28,21 +32,18 @@ class ContactController extends Controller
         $topBar = new TopBarView();
         $menuBar = new MenuBarView();
         $footer = new FooterView();
-        $contactView = new ContactView();
+        $form = new RegisterFormView();
 
 
-        //binding area
-        $contactData = $contact->getAll();
+
 
 
         //display area
         $head->show(null);
         $topBar->show(null);
         $menuBar->show($_SESSION['user-authenticated']??null);
-        $contactView->show($contactData);
+        $form->show($submitted);
         $bottom->show(null);
         $footer->show(null);
     }
-
-
 }

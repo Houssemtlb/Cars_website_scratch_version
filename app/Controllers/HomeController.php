@@ -50,7 +50,7 @@ class HomeController extends Controller
         $head->show(null);
         $topBar->show(null);
         $diaporama->show($diapoData);
-        $menuBar->show(null);
+        $menuBar->show($_SESSION['user-authenticated']??null);
         $section1->show($section1Data);
         $section2->show($section2Data);
         $bottom->show(null);

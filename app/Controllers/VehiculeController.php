@@ -22,12 +22,25 @@ require_once ("../app/Models/AvisVehiculeModel.php");
 class VehiculeController extends Controller{
     public function loadPage($id)
     {
-
         //models declaration area
         $vehicules = new VehiculeModel();
         $images = new ImageModel();
         $marques = new MarqueModel();
         $avis = new AvisVehiculeModel();
+
+
+        if(isset($_SESSION['user-authenticated'])){
+            $session = $_SESSION;
+            if(array_key_exists("avisVehiculeButton",$_POST)){
+                $avis->insert($_POST);
+                $vehicule = $vehicules->get($_POST['vehicule_id']);
+                $vehicule['note'] = $avis->calculateNote($_POST['vehicule_id']);
+                $vehicules->update($vehicule);
+            }
+        }else{
+            $session = null;
+        }
+
 
         //views declaration area
         $head = new HeadView();
@@ -43,13 +56,13 @@ class VehiculeController extends Controller{
 
         //binding area
         unset($id[0]); //to eliminate le nom du controlleur
-        $vehiculeData = ["vehicule" => $vehicules->get($id[1]), "images" => $images->getVehiculeImages($id[1]), "avis" => $avis->getAllWithUsernamesForVehicule($id[1])];
+        $vehiculeData = ["vehicule" => $vehicules->get($id[1]), "images" => $images->getVehiculeImages($id[1]), "avis" => $avis->getAllWithUsernamesForVehicule($id[1]),"session" => $session];
         $compareData = ["marques" => $marques->getAll(), "vehicules" => $marques->getAllForCompare(), "specificVehicule" => $vehicules->get($id[1]), "specificMarque" => $marques->get($vehicules->get($id[1])["marque_id"])];
 
         //display area
         $head->show(null);
         $topBar->show(null);
-        $menuBar->show(null);
+        $menuBar->show($_SESSION['user-authenticated']??null);
         $vehiculeInfos->show($vehiculeData);
         $comparator->show($compareData);
         $bottom->show(null);

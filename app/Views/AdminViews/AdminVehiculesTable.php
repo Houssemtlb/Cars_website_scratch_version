@@ -24,6 +24,7 @@ class AdminVehiculesTable extends View{
             echo "<th> longueur </th>";
             echo "<th> largeur </th>";
             echo "<th> hauteur </th>";
+            echo "<th> note </th>";
             echo "<th>  </th>";
             echo "</thead>";
             echo "<tbody>";
@@ -44,6 +45,7 @@ class AdminVehiculesTable extends View{
                 echo "<td>" . $vehicule["longueur"] . "</td>";
                 echo "<td>" . $vehicule["largeur"] . "</td>";
                 echo "<td>" . $vehicule["hauteur"] . "</td>";
+                echo "<td>" . $vehicule["note"] . "</td>";
                 echo"<td><a href='http://localhost/cars_website_scratch_version/admin/AdminVehicule/Modifier/$vehicule[vehicule_id]' class=\"btn btn-secondary\" style='margin: 10px'>Modifier</a>
                          <a href='http://localhost/cars_website_scratch_version/admin/AdminVehicule/Supprimer/$vehicule[vehicule_id]' class=\"btn btn-secondary\" style='margin: 10px'>Supprimer</a>
                          <a href='http://localhost/cars_website_scratch_version/public/Vehicule/$vehicule[vehicule_id]' class=\"btn btn-secondary\" style='margin: 10px'>Info</a></td>";

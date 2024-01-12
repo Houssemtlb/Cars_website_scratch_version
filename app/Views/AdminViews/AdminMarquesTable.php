@@ -15,6 +15,7 @@ class AdminMarquesTable extends View{
             echo "<th> siege_social </th>";
             echo "<th> annee_creation </th>";
             echo "<th> description </th>";
+            echo "<th> note </th>";
             echo "<th>  </th>";
             echo "</thead>";
             echo "<tbody>";
@@ -26,6 +27,7 @@ class AdminMarquesTable extends View{
                 echo "<td>" . $marque["siege_social"] . "</td>";
                 echo "<td>" . $marque["annee_creation"] . "</td>";
                 echo "<td>" . $marque["description"] . "</td>";
+                echo "<td>" . $marque["note"] . "</td>";
                 echo"<td><a href='http://localhost/cars_website_scratch_version/admin/AdminMarque/Modifier/$marque[marque_id]' class=\"btn btn-secondary\" style='margin: 10px'>Modifier</a>
                          <a href='http://localhost/cars_website_scratch_version/admin/AdminMarque/Supprimer/$marque[marque_id]' class=\"btn btn-secondary\" style='margin: 10px'>Supprimer</a></td>";
                 echo "</tr>";
