@@ -81,26 +81,28 @@ class MarqueSpecifiqueView extends View
             <div class='collapse' id='collapseAvis' style='width: 90%'>";
 
                 foreach ($avis as $a) {
-                    echo "
-                <div class='card' style='margin-bottom: 20px; text-decoration: none;color: black; padding: 10px;border-radius: 8px'>
-                    <div style='display: flex; flex-direction: row; align-items: center;justify-content: space-between; width:100%'>";
-                    echo "
-                        <div style='display: flex;flex-direction: column; margin-left: 10px'>
-                            <h6>Utilisateur : $a[nom] $a[prenom]</h6>
-                            <h6>Note : $a[note]/5</h6>
-                            <h6>Avis : $a[avis]</h6>
-                            <h6>Appreciation : $a[appreciation] likes</h6>
+                    if($a['valide'] == 1){
+                                echo "
+                        <div class='card' style='margin-bottom: 20px; text-decoration: none;color: black; padding: 10px;border-radius: 8px'>
+                            <div style='display: flex; flex-direction: row; align-items: center;justify-content: space-between; width:100%'>";
+                                echo "
+                                <div style='display: flex;flex-direction: column; margin-left: 10px'>
+                                    <h6>Utilisateur : $a[nom] $a[prenom]</h6>
+                                    <h6>Note : $a[note]/5</h6>
+                                    <h6>Avis : $a[avis]</h6>
+                                    <h6>Appreciation : $a[appreciation] likes</h6>
+                                </div>";
+                                if(isset($session)){
+                                    echo"<form method='post' action='http://localhost/cars_website_scratch_version/public/Marque/$marque[marque_id]/like'>
+                                    <input style='display: none'  name='avis_marque_id' value='$a[avis_marque_id]'>
+                                    <button type='submit' name='LikeButton' class='btn btn-sm'>Like</button>
+                                 </form>";
+                                }
+                                echo "
+                            </div>
                         </div>";
-                    if(isset($session)){
-                        echo"<form method='post' action='http://localhost/cars_website_scratch_version/public/Marque/$marque[marque_id]/like'>
-                            <input style='display: none'  name='avis_marque_id' value='$a[avis_marque_id]'>
-                            <button type='submit' name='LikeButton' class='btn btn-sm'>Like</button>
-                         </form>";
+                        }
                     }
-                    echo "
-                    </div>
-                </div>";
-                }
                 echo "</div>";
 
                 if (isset($session)){

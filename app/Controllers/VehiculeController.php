@@ -61,7 +61,7 @@ class VehiculeController extends Controller{
 
         //binding area
         unset($id[0]); //to eliminate le nom du controlleur
-        $vehiculeData = ["vehicule" => $vehicules->get($id[1]), "images" => $images->getVehiculeImages($id[1]), "avis" => $avisVehicule->getAllWithUsernamesForVehicule($id[1]),"session" => $session];
+        $vehiculeData = ["vehicule" => $vehicules->get($id[1]), "images" => $images->getVehiculeImages($id[1]), "avis" => $avisVehicule->avisLesPlusApprecies($id[1]),"session" => $session];
         $compareData = ["marques" => $marques->getAll(), "vehicules" => $marques->getAllForCompare(), "specificVehicule" => $vehicules->get($id[1]), "specificMarque" => $marques->get($vehicules->get($id[1])["marque_id"])];
 
         //display area

@@ -34,13 +34,15 @@ class AdminAvisController extends Controller{
                         $marque = $marques->get($avis['marque_id']);
                         $marque['note'] = $avisMarques->calculateNote($avis['marque_id']);
                         $marques->update($marque);
+                        header("Location: http://localhost/cars_website_scratch_version/admin/AdminAvis");
                         break;
                     case 'RefuserMarque' :
-                        $avisMarques->delete($data[2]);
                         $avis = $avisMarques->get($data[2]);
                         $marque = $marques->get($avis['marque_id']);
+                        $avisMarques->delete($data[2]);
                         $marque['note'] = $avisMarques->calculateNote($avis['marque_id']);
                         $marques->update($marque);
+                        header("Location: http://localhost/cars_website_scratch_version/admin/AdminAvis");
                         break;
                     case 'ValiderVehicule' :
                         $avis = $avisVehicules->get($data[2]);
@@ -49,13 +51,15 @@ class AdminAvisController extends Controller{
                         $vehicule = $vehicules->get($avis['vehicule_id']);
                         $vehicule['note'] = $avisVehicules->calculateNote($avis['vehicule_id']);
                         $vehicules->update($vehicule);
+                        header("Location: http://localhost/cars_website_scratch_version/admin/AdminAvis");
                         break;
                     case 'RefuserVehicule' :
-                        $avisVehicules->delete($data[2]);
                         $avis = $avisMarques->get($data[2]);
                         $vehicule = $vehicules->get($avis['vehicule_id']);
+                        $avisVehicules->delete($data[2]);
                         $vehicule['note'] = $avisVehicules->calculateNote($avis['vehicule_id']);
                         $vehicules->update($vehicule);
+                        header("Location: http://localhost/cars_website_scratch_version/admin/AdminAvis");
                         break;
 
                 }

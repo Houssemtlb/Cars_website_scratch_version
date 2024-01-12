@@ -48,7 +48,7 @@ class VehiculeInfosView extends View{
                 </div> 
                 <img style=\"margin:40px; height: 600px;object-fit: contain\" src=\"$images[0]\" alt=\"logo\"/>
             </div>";
-        echo"<h1>Avis</h1>";
+        echo"<h1>Avis les plus apprecies</h1>";
 
         foreach ($avis as $a) {
             echo "
@@ -69,8 +69,10 @@ class VehiculeInfosView extends View{
                         }
             echo"
                     </div>
-                </a>";
+                </a>
+                ";
         }
+        echo"<a href='http://localhost/cars_website_scratch_version/admin/AvisVehicule/$vehicule[vehicule_id]' type=\"button\" class=\"btn btn-secondary btn-lg btn-block\" style='width: 30%;background-color: black'>voir plus d'avis</a>";
         if (isset($session)){
             echo"<h1>Donnez votre avis</h1>
                       <form method=\"post\" action=\"http://localhost/cars_website_scratch_version/admin/Vehicule/$vehicule[vehicule_id]\">
@@ -84,7 +86,7 @@ class VehiculeInfosView extends View{
                             <label>Avis</label>
                             <textarea style=\"width: 300px\" class=\"form-control\" name=\"avis\"></textarea>
                           </div>
-                          <button name=\"avisVehiculeButton\" type=\"submit\" class=\"btn btn-secondary btn-lg btn-block\">Envoyer</button>
+                          <button style='background-color: black' name=\"avisVehiculeButton\" type=\"submit\" class=\"btn btn-secondary btn-lg btn-block\">Envoyer</button>
                     </form>";
 
         }

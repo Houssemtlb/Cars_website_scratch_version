@@ -55,7 +55,7 @@ class AvisVehiculeController extends Controller{
         $avisVehiculeData =[
             "vehicule" => $vehicules->get($id[1]),
             "images" => $images->getVehiculeImages($id[1]),
-            "avis" => $avisVehicule->getAllWithUsernamesForVehicule($id[1]),
+            "avis" => $avisVehicule->avisLesPlusApprecies($id[1]),
             "session" => $session];
 
         //display area

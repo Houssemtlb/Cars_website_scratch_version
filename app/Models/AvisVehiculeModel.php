@@ -68,10 +68,10 @@ class AvisVehiculeModel extends Model{
         return $result;
     }
 
-    public function avisLesPlusApprecies()
+    public function avisLesPlusApprecies($id)
     {
         $this->connect();
-        $data = $this->request($this->connection,"select * from avis_vehicule order by appreciation desc limit 3");
+        $data = $this->request($this->connection,"select a.*,u.nom,u.prenom from avis_vehicule as a join user as u on u.user_id = a.user_id where a.vehicule_id = $id and a.valide = 1 order by appreciation desc limit 3");
         $this->disconnect();
         return $data;
     }
