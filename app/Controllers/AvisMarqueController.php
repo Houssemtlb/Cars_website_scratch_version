@@ -29,6 +29,18 @@ class AvisMarqueController extends Controller{
         $images = new ImageModel();
         $avisMarque = new AvisMarqueModel();
 
+
+        if(isset($_SESSION['user-authenticated'])){
+            $session = $_SESSION;
+            if(array_key_exists("LikeButton",$_POST)){
+                $avis = $avisMarque->get($_POST['avis_marque_id']);
+                $avis['appreciation'] = $avis['appreciation'] + 1;
+                $avisMarque->update($avis);
+            }
+        }else{
+            $session = null;
+        }
+
         //views declaration area
         $head = new HeadView();
         $bottom = new BottomView();
@@ -53,7 +65,8 @@ class AvisMarqueController extends Controller{
                                     "vehicules" => $vehicules->getAllForMarque($id[1]),
                                     "images" => $images->getMarqueAllVehiculeImages($id[1]),
                                     "avis" => $avisMarque->getAllWithUsernamesForMarque($id[1]),
-                                    "link" => "avis"];
+                                    "link" => "avis",
+                                    "session" => $session];
             $marqueSpecifiqueView->show($marqueSpecifiqueData);
         }else{
             $marquesView->show($marquesData);

@@ -68,4 +68,12 @@ class AvisVehiculeModel extends Model{
         return $result;
     }
 
+    public function avisLesPlusApprecies()
+    {
+        $this->connect();
+        $data = $this->request($this->connection,"select * from avis_vehicule order by appreciation desc limit 3");
+        $this->disconnect();
+        return $data;
+    }
+
 }

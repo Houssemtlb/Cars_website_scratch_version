@@ -7,6 +7,7 @@ class AvisVehiculeView extends View{
         $vehicule = $data["vehicule"];
         $images = $data["images"];
         $avis = $data['avis'];
+        $session = $data['session'];
 
         echo "
         <div class='section'>
@@ -19,8 +20,8 @@ class AvisVehiculeView extends View{
 
             foreach ($avis as $a) {
                 echo "
-                <a class='card' style='margin-bottom: 20px;width: 800px; text-decoration: none;color: black; padding: 10px;border-radius: 8px'>
-                    <div style='display: flex; flex-direction: row; align-items: center; width:100%'>";
+                <div class='card' style='margin-bottom: 20px;width: 800px; text-decoration: none;color: black; padding: 10px;border-radius: 8px'>
+                    <div style='display: flex; flex-direction: row; align-items: center;justify-content: space-between; width:100%'>";
                 echo "
                         <div style='display: flex;flex-direction: column; margin-left: 10px'>
                             <h6>Utilisateur : $a[nom] $a[prenom]</h6>
@@ -28,9 +29,15 @@ class AvisVehiculeView extends View{
                             <h6>Avis : $a[avis]</h6>
                             <h6>Appreciation : $a[appreciation] likes</h6>
                         </div>";
+                if(isset($session)){
+                    echo"<form method='post' action='http://localhost/cars_website_scratch_version/public/AvisVehicule/$vehicule[vehicule_id]/like'>
+                            <input style='display: none'  name='avis_vehicule_id' value='$a[avis_vehicule_id]'>
+                            <button type='submit' name='LikeButton' class='btn btn-sm'>Like</button>
+                         </form>";
+                }
                 echo "
                     </div>
-                </a>";
+                </div>";
                 }
             echo"</div>";
     }

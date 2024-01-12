@@ -26,16 +26,21 @@ class VehiculeController extends Controller{
         $vehicules = new VehiculeModel();
         $images = new ImageModel();
         $marques = new MarqueModel();
-        $avis = new AvisVehiculeModel();
+        $avisVehicule = new AvisVehiculeModel();
 
 
         if(isset($_SESSION['user-authenticated'])){
             $session = $_SESSION;
             if(array_key_exists("avisVehiculeButton",$_POST)){
-                $avis->insert($_POST);
+                $avisVehicule->insert($_POST);
                 $vehicule = $vehicules->get($_POST['vehicule_id']);
-                $vehicule['note'] = $avis->calculateNote($_POST['vehicule_id']);
+                $vehicule['note'] = $avisVehicule->calculateNote($_POST['vehicule_id']);
                 $vehicules->update($vehicule);
+            }
+            if(array_key_exists("LikeButton",$_POST)){
+                $avis = $avisVehicule->get($_POST['avis_vehicule_id']);
+                $avis['appreciation'] = $avis['appreciation'] + 1;
+                $avisVehicule->update($avis);
             }
         }else{
             $session = null;
@@ -56,7 +61,7 @@ class VehiculeController extends Controller{
 
         //binding area
         unset($id[0]); //to eliminate le nom du controlleur
-        $vehiculeData = ["vehicule" => $vehicules->get($id[1]), "images" => $images->getVehiculeImages($id[1]), "avis" => $avis->getAllWithUsernamesForVehicule($id[1]),"session" => $session];
+        $vehiculeData = ["vehicule" => $vehicules->get($id[1]), "images" => $images->getVehiculeImages($id[1]), "avis" => $avisVehicule->getAllWithUsernamesForVehicule($id[1]),"session" => $session];
         $compareData = ["marques" => $marques->getAll(), "vehicules" => $marques->getAllForCompare(), "specificVehicule" => $vehicules->get($id[1]), "specificMarque" => $marques->get($vehicules->get($id[1])["marque_id"])];
 
         //display area

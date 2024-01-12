@@ -11,9 +11,8 @@ class MarqueSpecifiqueView extends View
         $images = $data["images"];
         $link = $data['link'];
         $avis = $data['avis'];
-        if(isset($data['session'])){
-            $session = $data['session'];
-        }
+        $session = $data['session'];
+
 
 
         echo "
@@ -83,8 +82,8 @@ class MarqueSpecifiqueView extends View
 
                 foreach ($avis as $a) {
                     echo "
-                <a class='card' style='margin-bottom: 20px; text-decoration: none;color: black; padding: 10px;border-radius: 8px'>
-                    <div style='display: flex; flex-direction: row; align-items: center; width:100%'>";
+                <div class='card' style='margin-bottom: 20px; text-decoration: none;color: black; padding: 10px;border-radius: 8px'>
+                    <div style='display: flex; flex-direction: row; align-items: center;justify-content: space-between; width:100%'>";
                     echo "
                         <div style='display: flex;flex-direction: column; margin-left: 10px'>
                             <h6>Utilisateur : $a[nom] $a[prenom]</h6>
@@ -92,9 +91,15 @@ class MarqueSpecifiqueView extends View
                             <h6>Avis : $a[avis]</h6>
                             <h6>Appreciation : $a[appreciation] likes</h6>
                         </div>";
+                    if(isset($session)){
+                        echo"<form method='post' action='http://localhost/cars_website_scratch_version/public/Marque/$marque[marque_id]/like'>
+                            <input style='display: none'  name='avis_marque_id' value='$a[avis_marque_id]'>
+                            <button type='submit' name='LikeButton' class='btn btn-sm'>Like</button>
+                         </form>";
+                    }
                     echo "
                     </div>
-                </a>";
+                </div>";
                 }
                 echo "</div>";
 
@@ -113,9 +118,7 @@ class MarqueSpecifiqueView extends View
                                   </div>
                                   <button name=\"avisMarqueButton\" type=\"submit\" class=\"btn btn-secondary btn-lg btn-block\">Envoyer</button>
                             </form>";
-
                 }
-
         echo"</div>";
 
 

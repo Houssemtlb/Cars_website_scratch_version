@@ -36,6 +36,11 @@ class MarqueController extends Controller{
                 $marque['note'] = $avisMarque->calculateNote($_POST['marque_id']);
                 $marques->update($marque);
             }
+            if(array_key_exists("LikeButton",$_POST)){
+                $avis = $avisMarque->get($_POST['avis_marque_id']);
+                $avis['appreciation'] = $avis['appreciation'] + 1;
+                $avisMarque->update($avis);
+            }
         }else{
             $session = null;
         }

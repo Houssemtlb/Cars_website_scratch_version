@@ -29,6 +29,19 @@ class AvisVehiculeController extends Controller{
         $images = new ImageModel();
         $avisVehicule = new AvisVehiculeModel();
 
+
+        if(isset($_SESSION['user-authenticated'])){
+            $session = $_SESSION;
+            if(array_key_exists("LikeButton",$_POST)){
+                $avis = $avisVehicule->get($_POST['avis_vehicule_id']);
+                $avis['appreciation'] = $avis['appreciation'] + 1;
+                $avisVehicule->update($avis);
+            }
+        }else{
+            $session = null;
+        }
+
+
         //views declaration area
         $head = new HeadView();
         $bottom = new BottomView();
@@ -42,7 +55,8 @@ class AvisVehiculeController extends Controller{
         $avisVehiculeData =[
             "vehicule" => $vehicules->get($id[1]),
             "images" => $images->getVehiculeImages($id[1]),
-            "avis" => $avisVehicule->getAllWithUsernamesForVehicule($id[1])];
+            "avis" => $avisVehicule->getAllWithUsernamesForVehicule($id[1]),
+            "session" => $session];
 
         //display area
         $head->show(null);
