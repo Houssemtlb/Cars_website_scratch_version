@@ -28,7 +28,7 @@ class UserModel extends Model{
         $request->bindValue(':mot_de_passe', $data['mot_de_passe']);
         $request->bindValue(':date_naissance', $data['date_naissance']);
         $request->bindValue(':sexe', $data['sexe']);
-        $request->bindValue(':valide', $data['valide']);
+        $request->bindValue(':valide',$data['valide']);
         $request->execute();
         $this->disconnect();
     }
