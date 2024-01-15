@@ -17,6 +17,7 @@ class AdminVehiculeController extends Controller{
     {
         //models declaration area
         $vehicules = new VehiculeModel();
+        $images = new ImageModel();
 
         //views declaration area
         $head = new HeadView();
@@ -28,11 +29,16 @@ class AdminVehiculeController extends Controller{
             case 'Modifier' :
                 //binding area
                 $vehiculeData = $vehicules->get($data[2]);
-
+                $marqueData = array_merge($vehiculeData,$images->getVehiculeFirstImage($data[2]));
 
                 if(array_key_exists("VehiculeButton",$_POST))
                 {
                     $vehiculeData = $vehicules->get($_POST['vehicule_id']);
+                    $vehiculeData = array_merge($vehiculeData,$images->getVehiculeFirstImage($_POST['marque_id']));
+
+                    $imagesData = ["path" => $_POST["image_path"], "old_path" => $images->getVehiculeFirstImage($data[2])[0]];
+
+                    $images->update($imagesData);
                     $vehicules->update($_POST);
                     header("Location: http://localhost/cars_website_scratch_version/admin/AdminMV");
                 }
@@ -51,6 +57,8 @@ class AdminVehiculeController extends Controller{
                 if(array_key_exists("VehiculeButton",$_POST))
                 {
                     $vehicules->insert($_POST);
+                    $vehicule = $vehicules->getLastVehiculeInserted();
+                    $images->addVehiculeImage($vehicule["vehicule_id"],$_POST["image_path"]);
                     header("Location: http://localhost/cars_website_scratch_version/admin/AdminMV");
                 }
 

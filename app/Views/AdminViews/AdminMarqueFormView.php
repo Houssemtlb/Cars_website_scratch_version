@@ -11,6 +11,8 @@ class AdminMarqueFormView extends View{
             $data['siege_social'] = "";
             $data['annee_creation'] = "";
             $data['description'] = "";
+            $data['note'] = "";
+            $data['image_path'] = "";
             $action = "Ajouter";
         }else{
             $action = "Modifier";
@@ -38,11 +40,15 @@ class AdminMarqueFormView extends View{
                                </div>
                               <div class=\"form-group\">
                                     <label>description</label>
-                                    <textarea type='text' required=\"required\"  class=\"form-control\" name=\"description\" >$data[description]</textarea>
+                                    <textarea required=\"required\"  class=\"form-control\" name=\"description\" >$data[description]</textarea>
                               </div>
                               <div class=\"form-group\">
                                     <label>note</label>
                                     <input type='number'  class=\"form-control\" name=\"note\" value='$data[note]'>
+                              </div>
+                              <div class=\"form-group\">
+                                    <label>image path</label>
+                                    <input type='text' required=\"required\" class=\"form-control\" name=\"image_path\" value='$data[image_path]'>
                               </div>
                           </div>
                       </div>

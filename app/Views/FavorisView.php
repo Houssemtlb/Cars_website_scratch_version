@@ -4,7 +4,6 @@ class FavorisView extends View{
 
     public function show($data)
     {
-
         echo"<div class='section' style='height: 100%;'>";
         if(isset($data)){
             echo"<h1>Vehicules favoris</h1>";

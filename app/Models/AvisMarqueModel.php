@@ -70,7 +70,11 @@ class AvisMarqueModel extends Model{
         foreach ($notes as $note){
             $somme = $somme + $note['note'];
         }
-        $result = $somme/count($notes);
+        if(count($notes) == 0){
+            $result = 0;
+        }else{
+            $result = $somme/count($notes);
+        }
         $this->disconnect();
         return $result;
     }

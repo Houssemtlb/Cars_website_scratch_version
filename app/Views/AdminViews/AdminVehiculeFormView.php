@@ -21,6 +21,7 @@ class AdminVehiculeFormView extends View{
             $data["largeur"] = "";
             $data["hauteur"] = "";
             $data["note"] = "";
+            $data['image_path'] = "";
             $action = "Ajouter";
         }else{
             $action = "Modifier";
@@ -60,6 +61,10 @@ class AdminVehiculeFormView extends View{
                                     <label>cylindree</label>
                                     <input required=\"required\" class=\"form-control\" name=\"cylindree\" value='$data[cylindree]'>
                                </div>
+                               <div class=\"form-group\">
+                                    <label>note</label>
+                                    <input required=\"required\" class=\"form-control\" name=\"note\" value='$data[note]'>
+                               </div>
                           </div>
                           <div style=\"display: flex;flex-direction: column;margin: 20px\">
                               <div class=\"form-group\">
@@ -91,9 +96,9 @@ class AdminVehiculeFormView extends View{
                                     <input required=\"required\" class=\"form-control\" name=\"hauteur\" value='$data[hauteur]'>
                                </div>
                                <div class=\"form-group\">
-                                    <label>note</label>
-                                    <input required=\"required\" class=\"form-control\" name=\"note\" value='$data[note]'>
-                               </div>
+                                    <label>image path</label>
+                                    <input type='text' required=\"required\" class=\"form-control\" name=\"image_path\" value='$data[image_path]'>
+                              </div>
                           </div>
                       </div>
                      <button type=\"submit\" class=\"btn btn-secondary btn-lg btn-block\" name=\"VehiculeButton\">$action</button>

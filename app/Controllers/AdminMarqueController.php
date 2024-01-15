@@ -19,6 +19,7 @@ class AdminMarqueController extends Controller{
         if(isset($_SESSION['admin-authenticated'])) {
             //models declaration area
             $marques = new MarqueModel();
+            $images = new ImageModel();
 
             //views declaration area
             $head = new HeadView();
@@ -30,9 +31,15 @@ class AdminMarqueController extends Controller{
                 case 'Modifier' :
                     //binding area
                     $marqueData = $marques->get($data[2]);
+                    $marqueData = array_merge($marqueData,$images->getMarqueLogo($data[2]));
 
                     if (array_key_exists("MarqueButton", $_POST)) {
                         $marqueData = $marques->get($_POST['marque_id']);
+                        $marqueData = array_merge($marqueData,$images->getMarqueLogo($_POST['marque_id']));
+
+                        $imagesData = ["path" => $_POST["image_path"], "old_path" => $images->getMarqueLogo($data[2])[0]];
+
+                        $images->update($imagesData);
                         $marques->update($_POST);
                         header("Location: http://localhost/cars_website_scratch_version/admin/AdminMV");
                     }
@@ -50,6 +57,8 @@ class AdminMarqueController extends Controller{
                     //inserting area
                     if (array_key_exists("MarqueButton", $_POST)) {
                         $marques->insert($_POST);
+                        $marque = $marques->getLastMarqueInserted();
+                        $images->addMarqueImage($marque["marque_id"],$_POST["image_path"]);
                         header("Location: http://localhost/cars_website_scratch_version/admin/AdminMV");
                     }
 

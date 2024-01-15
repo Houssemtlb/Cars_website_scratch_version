@@ -60,4 +60,9 @@ class MarqueModel extends Model{
         return $this->fetch("select m.marque_id,m.nom as marque_nom,v.vehicule_id,v.model as model,version,annee from (marque as m join vehicule as v on m.marque_id = v.marque_id)");
     }
 
+    public function getLastMarqueInserted()
+    {
+        return $this->fetch("select marque_id from marque order by marque_id desc limit 1")[0];
+    }
+
 }

@@ -35,7 +35,7 @@ class AccountController extends Controller
             $vehiculesFavoris = [];
             foreach($favorisData as $fav){
                 $vehicule = $vehicules->get($fav['vehicule_id']);
-                $vehicule = array_merge($vehicule,$images->getVehiculeImage($vehicule['vehicule_id']));
+                $vehicule = array_merge($vehicule,$images->getVehiculeFirstImage($vehicule['vehicule_id']));
                 $vehiculesFavoris[] = $vehicule;
             }
 
