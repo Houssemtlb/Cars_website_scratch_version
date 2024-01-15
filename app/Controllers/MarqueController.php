@@ -71,7 +71,7 @@ class MarqueController extends Controller{
                                     "images" => $images->getMarqueAllVehiculeImages($id[1]),
                                     "avis" => $avisMarque->getAllWithUsernamesForMarque($id[1]),
                                     "link" => "marque",
-                                    "session" => $session];
+                                    "session" => $session,];
             $marqueSpecifiqueView->show($marqueSpecifiqueData);
         }else{
             $marquesView->show($marquesData);

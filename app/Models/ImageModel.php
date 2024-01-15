@@ -63,4 +63,9 @@ class ImageModel extends Model{
     {
         return $this->fetch("select i.image_path, v.vehicule_id from ((vehicule as v join images_association_vehicule as a on v.vehicule_id = a.vehicule_id) join image as i on i.image_id = a.image_id) where v.marque_id = $id");
     }
+
+    public function getVehiculeImage($id)
+    {
+        return $this->fetch("select i.image_path from image as i join images_association_vehicule as a on i.image_id = a.image_id where vehicule_id = $id")[0];
+    }
 }
