@@ -13,7 +13,7 @@ require_once("../app/Views/CompareTableView.php");
 require_once ("../app/Models/MarqueModel.php");
 require_once ("../app/Models/VehiculeModel.php");
 require_once ("../app/Models/ImageModel.php");
-
+require_once ("../app/Models/ComparaisonModel.php");
 
 
 class CompareController extends Controller{
@@ -24,6 +24,7 @@ class CompareController extends Controller{
         $marques = new MarqueModel();
         $vehicules = new VehiculeModel();
         $images = new ImageModel();
+        $comparaison = new ComparaisonModel();
 
         //views declaration area
         $head = new HeadView();
@@ -31,7 +32,7 @@ class CompareController extends Controller{
         $topBar = new TopBarView();
         $menuBar = new MenuBarView();
         $footer = new FooterView();
-        $section2 = new ComparatorView();
+        $comparator = new ComparatorView();
         $table = new CompareTableView();
 
         //binding area
@@ -42,13 +43,45 @@ class CompareController extends Controller{
             $temp["images"] = $images->getVehiculeImages($id);
             $tableData[] = $temp;
         }
-        $section2Data = ["marques" => $marques->getAll(), "vehicules" => $marques->getAllForCompare()];
+        $comparatorData = ["marques" => $marques->getAll(), "vehicules" => $marques->getAllForCompare()];
+
+
+        //incrementing les comparaisons les plus recherchees area
+        if(isset($ids[1])){
+            switch (count($ids)){
+                case 2 :
+                    $comparaison->addComparaison($ids[1],$ids[2]);
+                    break;
+                case 3 :
+                    $comparaison->addComparaison($ids[1],$ids[2]);
+                    $comparaison->addComparaison($ids[2],$ids[3]);
+                    $comparaison->addComparaison($ids[3],$ids[4]);
+                    break;
+                case 4 :
+                    $comparaison->addComparaison($ids[1], $ids[2]);
+                    $comparaison->addComparaison($ids[2], $ids[3]);
+                    $comparaison->addComparaison($ids[3], $ids[4]);
+                    $comparaison->addComparaison($ids[4], $ids[1]);
+                    $comparaison->addComparaison($ids[1], $ids[3]);
+                    $comparaison->addComparaison($ids[2], $ids[4]);
+                    break;
+            }
+        }
+
+
+
+
+
+
+
+
+
 
         //display area
         $head->show(null);
         $topBar->show(null);
         $menuBar->show($_SESSION['user-authenticated']??null);
-        $section2->show($section2Data);
+        $comparator->show($comparatorData);
         $table->show($tableData);
         $bottom->show(null);
         $footer->show(null);

@@ -68,4 +68,7 @@ class VehiculeModel extends Model{
         return $this->fetch("select vehicule_id from vehicule order by vehicule_id desc limit 1")[0];
     }
 
+
+
+
 }
