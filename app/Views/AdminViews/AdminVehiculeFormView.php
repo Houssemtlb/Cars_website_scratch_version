@@ -31,7 +31,7 @@ class AdminVehiculeFormView extends View{
         echo "<div class=\"section\">
                     <form method=\"post\" action=\"http://localhost/cars_website_scratch_version/admin/AdminVehicule/$action/$data[vehicule_id]\">
                     <div style=\"display: flex;flex-direction: row\">
-                        <div style=\"display: flex;flex-direction: column;margin: 20px\">
+                        <div style=\"display: flex;flex-direction: column;margin: 20px;width: 350px\">
                               <input style=\"display: none\" name=\"vehicule_id\" value=\"$data[vehicule_id]\">
                               <div class=\"form-group\">
                                     <label>marque_id</label>
@@ -66,7 +66,7 @@ class AdminVehiculeFormView extends View{
                                     <input required=\"required\" class=\"form-control\" name=\"note\" value='$data[note]'>
                                </div>
                           </div>
-                          <div style=\"display: flex;flex-direction: column;margin: 20px\">
+                          <div style=\"display: flex;flex-direction: column;margin: 20px;width: 350px\">
                               <div class=\"form-group\">
                                     <label>consommation</label>
                                     <input required=\"required\" class=\"form-control\" name=\"consommation\" value='$data[consommation]'>

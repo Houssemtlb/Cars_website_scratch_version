@@ -7,7 +7,7 @@ class AdminApp
 
     private function splitURL()
     {
-        $URL = $_GET["url"] ?? 'AdminAuth';
+        $URL = $_GET["url"] ?? 'AdminHome';
         $URL = explode("/", $URL);
         return $URL;
     }

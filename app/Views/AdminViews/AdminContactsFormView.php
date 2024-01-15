@@ -16,7 +16,7 @@ class AdminContactsFormView extends View{
         echo "<div class=\"section\" style=\"height: 100%;\" id='ContactsForm'>
                     <form method=\"post\" action=\"http://localhost/cars_website_scratch_version/admin/AdminParametres/$action/$data[contact_id]\">
                     <div style=\"display: flex;flex-direction: row\">
-                        <div style=\"display: flex;flex-direction: column;margin: 20px\">
+                        <div style=\"display: flex;flex-direction: column;margin: 20px;width: 350px\">
                               <input style='display: none'  class=\"form-control\" name=\"contact_id\" value=\"$data[contact_id]\">
                               <div class=\"form-group\">
                                     <label>nom</label>

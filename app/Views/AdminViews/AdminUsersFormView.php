@@ -18,8 +18,8 @@ class AdminUsersFormView extends View{
         }
         echo "<div class=\"section\" style=\"height: 100%;\" id='UsersForm'>
                     <form id='ActionUserForm' method=\"post\" action=\"http://localhost/cars_website_scratch_version/admin/AdminUsers/$action/$data[user_id]\">
-                    <div style=\"display: flex;flex-direction: row\">
-                        <div style=\"display: flex;flex-direction: column;margin: 20px\">
+                    <div style=\"display: flex;flex-direction: row;\">
+                        <div style=\"display: flex;flex-direction: column;margin: 20px;width: 350px\">
                               <input style='display: none'  class=\"form-control\" name=\"user_id\" value=\"$data[user_id]\">
                               <div class=\"form-group\">
                                     <label>nom</label>

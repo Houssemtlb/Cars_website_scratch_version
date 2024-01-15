@@ -19,8 +19,8 @@ class AdminMarqueFormView extends View{
         }
         echo "<div class=\"section\" style=\"height: 100%;\">
                     <form method=\"post\" action=\"http://localhost/cars_website_scratch_version/admin/AdminMarque/$action/$data[marque_id]\">
-                    <div style=\"display: flex;flex-direction: row\">
-                        <div style=\"display: flex;flex-direction: column;margin: 20px\">
+                    <div style=\"display: flex;flex-direction: row;\">
+                        <div style=\"display: flex;flex-direction: column;margin: 20px;width: 350px\">
                               <input style='display: none'  class=\"form-control\" name=\"marque_id\" value=\"$data[marque_id]\">
                               <div class=\"form-group\">
                                     <label>nom</label>
