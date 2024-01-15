@@ -16,6 +16,7 @@ require_once ("../app/Models/MarqueModel.php");
 require_once ("../app/Models/VehiculeModel.php");
 require_once ("../app/Models/ImageModel.php");
 require_once ("../app/Models/AvisVehiculeModel.php");
+require_once ("../app/Models/UserModel.php");
 
 
 
@@ -27,6 +28,7 @@ class VehiculeController extends Controller{
         $images = new ImageModel();
         $marques = new MarqueModel();
         $avisVehicule = new AvisVehiculeModel();
+        $users = new UserModel();
 
 
         if(isset($_SESSION['user-authenticated'])){
@@ -41,6 +43,11 @@ class VehiculeController extends Controller{
                 $avis = $avisVehicule->get($_POST['avis_vehicule_id']);
                 $avis['appreciation'] = $avis['appreciation'] + 1;
                 $avisVehicule->update($avis);
+            }
+            if(array_key_exists("FavorisButton",$_POST)){
+                $user_id = $_POST['user_id'];
+                $vehicule_id = $_POST['vehicule_id'];
+                $users->addFavorite($vehicule_id,$user_id);
             }
         }else{
             $session = null;

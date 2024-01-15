@@ -62,4 +62,23 @@ class UserModel extends Model{
         $this->disconnect();
         return $result;
     }
+
+    public function addFavorite($vehicule_id,$user_id)
+    {
+        $this->connect();
+        $result = $this->request($this->connection,"select * from vehicule_favoris where user_id = $user_id and vehicule_id = $vehicule_id");
+        if($result == null){
+            $request = $this->connection->prepare("INSERT INTO vehicule_favoris(user_id,vehicule_id) VALUES (?,?)");
+            $request->execute(array($user_id, $vehicule_id));
+        }
+        $this->disconnect();
+    }
+
+    public function getFavorite($user_id)
+    {
+        $this->connect();
+        $result = $this->request($this->connection,"select * from vehicule_favoris where user_id = $user_id");
+        $this->disconnect();
+        return $result;
+    }
 }

@@ -48,6 +48,13 @@ class VehiculeInfosView extends View{
                 </div> 
                 <img style=\"margin:40px; height: 600px;object-fit: contain\" src=\"$images[0]\" alt=\"logo\"/>
             </div>";
+            if(isset($session)){
+                echo"<form method='post' action='http://localhost/cars_website_scratch_version/public/Vehicule/$vehicule[vehicule_id]'>
+                                        <input style='display: none'  name='vehicule_id' value='$vehicule[vehicule_id]'>
+                                        <input style='display: none'  name='user_id' value='$session[user_id]'>
+                                        <button style='background-color: black;color: white' type='submit' name='FavorisButton' class='btn btn-sm'>Ajouter aux favoris</button>
+                                     </form>";
+            }
         echo"<h1>Avis les plus apprecies</h1>";
 
         foreach ($avis as $a) {
@@ -88,7 +95,6 @@ class VehiculeInfosView extends View{
                           </div>
                           <button style='background-color: black' name=\"avisVehiculeButton\" type=\"submit\" class=\"btn btn-secondary btn-lg btn-block\">Envoyer</button>
                     </form>";
-
         }
         echo"</div>";
     }
