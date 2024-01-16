@@ -5,8 +5,8 @@ require_once ("../app/Models/ImageModel.php");
 
 
 //VIEWS
-require_once("../app/Views/HeadView.php");
-require_once("../app/Views/BottomView.php");
+require_once("../app/Views/UserViews/HeadView.php");
+require_once("../app/Views/UserViews/BottomView.php");
 require_once("../app/Views/AdminViews/AdminVehiculeFormView.php");
 
 

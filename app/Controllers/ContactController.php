@@ -1,11 +1,11 @@
 <?php
 //VIEWS
-require_once("../app/Views/HeadView.php");
-require_once("../app/Views/BottomView.php");
-require_once("../app/Views/TopBarView.php");
-require_once("../app/Views/MenuBarView.php");
-require_once("../app/Views/FooterView.php");
-require_once("../app/Views/ContactView.php");
+require_once("../app/Views/UserViews/HeadView.php");
+require_once("../app/Views/UserViews/BottomView.php");
+require_once("../app/Views/UserViews/TopBarView.php");
+require_once("../app/Views/UserViews/MenuBarView.php");
+require_once("../app/Views/UserViews/FooterView.php");
+require_once("../app/Views/UserViews/ContactView.php");
 
 //MODELS
 require_once("../app/Models/ContactModel.php");

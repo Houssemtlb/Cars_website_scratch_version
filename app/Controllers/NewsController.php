@@ -1,12 +1,12 @@
 <?php
 //VIEWS
-require_once("../app/Views/HeadView.php");
-require_once("../app/Views/BottomView.php");
-require_once("../app/Views/TopBarView.php");
-require_once("../app/Views/MenuBarView.php");
-require_once("../app/Views/FooterView.php");
-require_once("../app/Views/NewsView.php");
-require_once("../app/Views/SpecificNewsView.php");
+require_once("../app/Views/UserViews/HeadView.php");
+require_once("../app/Views/UserViews/BottomView.php");
+require_once("../app/Views/UserViews/TopBarView.php");
+require_once("../app/Views/UserViews/MenuBarView.php");
+require_once("../app/Views/UserViews/FooterView.php");
+require_once("../app/Views/UserViews/NewsView.php");
+require_once("../app/Views/UserViews/SpecificNewsView.php");
 //MODELS
 require_once("../app/Models/NewsModel.php");
 

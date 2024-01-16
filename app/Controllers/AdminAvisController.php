@@ -7,8 +7,8 @@ require_once ("../app/Models/MarqueModel.php");
 require_once ("../app/Models/VehiculeModel.php");
 
 //VIEWS
-require_once("../app/Views/HeadView.php");
-require_once("../app/Views/BottomView.php");
+require_once("../app/Views/UserViews/HeadView.php");
+require_once("../app/Views/UserViews/BottomView.php");
 require_once("../app/Views/AdminViews/AdminMarqueAvisTableView.php");
 require_once("../app/Views/AdminViews/AdminVehiculeAvisTableView.php");
 
@@ -54,7 +54,7 @@ class AdminAvisController extends Controller{
                         header("Location: http://localhost/cars_website_scratch_version/admin/AdminAvis");
                         break;
                     case 'RefuserVehicule' :
-                        $avis = $avisMarques->get($data[2]);
+                        $avis = $avisVehicules->get($data[2]);
                         $vehicule = $vehicules->get($avis['vehicule_id']);
                         $avisVehicules->delete($data[2]);
                         $vehicule['note'] = $avisVehicules->calculateNote($avis['vehicule_id']);

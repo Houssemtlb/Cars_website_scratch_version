@@ -24,13 +24,16 @@ class ComparaisonView extends View{
 
     public function show($data)
     {
-        echo"<div class='section'>";
-        echo"<h1>Comparaisons les plus populaires</h1>";
-        echo"<div style='display: flex;flex-direction: row;'>";
+        if($data != null){
+            echo"<div class='section'>";
+            echo"<h1>Comparaisons les plus populaires</h1>";
+            echo"<div style='display: flex;flex-direction: row;'>";
             foreach ($data as $couple){
                 $this->showSimple($couple);
             }
-        echo"</div>";
-        echo"</div>";
+            echo"</div>";
+            echo"</div>";
+        }
+
     }
 }

@@ -1,5 +1,5 @@
 <?php
-require_once("../app/Views/Error404View.php");
+require_once("../app/Views/UserViews/Error404View.php");
 class Error404Controller extends Controller
 {
     public function loadPage($data)

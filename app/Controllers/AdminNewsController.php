@@ -4,8 +4,8 @@ require_once ("../app/Models/NewsModel.php");
 
 
 //VIEWS
-require_once("../app/Views/HeadView.php");
-require_once("../app/Views/BottomView.php");
+require_once("../app/Views/UserViews/HeadView.php");
+require_once("../app/Views/UserViews/BottomView.php");
 require_once("../app/Views/AdminViews/AdminNewsTableView.php");
 require_once("../app/Views/AdminViews/AdminNewsFormView.php");
 
